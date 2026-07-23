@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA Miazzo - Consultora Económica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        datagreen: '#024627',
+                        datagray: '#333333',
+                        databeige: '#c3a38c',
+                        datalight: '#fcfdfd'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts: Rajdhani -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Rajdhani', sans-serif; }
+    </style>
+</head>
+<body class="bg-datalight text-datagray antialiased selection:bg-datagreen selection:text-white text-base sm:text-lg">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <img src="assets/logo-color.png" alt="Logo DATA Miazzo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 font-semibold text-lg">
+                <a href="#inicio" class="hover:text-datagreen transition-colors">Inicio</a>
+                <a href="#informes" class="hover:text-datagreen transition-colors">Informes</a>
+                <a href="#servicios" class="hover:text-datagreen transition-colors">Servicios</a>
+                <a href="#bio" class="hover:text-datagreen transition-colors">Bio</a>
+                <a href="#multimedia" class="hover:text-datagreen transition-colors">Multimedia</a>
+                <a href="#equipo" class="hover:text-datagreen transition-colors">Equipo</a>
+                <a href="#contacto" class="hover:text-datagreen transition-colors">Contacto</a>
+            </nav>
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="https://x.com/DavidMiazzo" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://www.instagram.com/dmiazzo/" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="http://wa.me/5493584377218" target="_blank" class="bg-datagreen text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-opacity-90 transition-all text-base">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- INICIO / HERO -->
+    <section id="inicio" class="relative bg-datagreen text-white py-20 lg:py-28 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://plus.unsplash.com/premium_photo-1661963442576-16ce45d2cd55?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8');">
+        <!-- Overlay oscuro para garantizar legibilidad -->
+        <div class="absolute inset-0 bg-black/60 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-4xl">
+            <span class="text-databeige text-base font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-6 shadow-sm">Consultora Económica</span>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">Especialistas en economía, finanzas y agro.</h1>
+            <p class="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-medium">Bajamos la coyuntura económica, financiera y política a tu día a día. Asesoramiento personalizado para decisiones informadas.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#servicios" class="bg-databeige text-datagray font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all text-lg shadow-lg">Nuestros Servicios</a>
+                <a href="https://chat.whatsapp.com/DLBaQYVOZ2AATAWAB0BmH3" target="_blank" class="border-2 border-white/60 bg-black/30 text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-datagreen transition-all flex items-center gap-3 text-lg backdrop-blur-sm">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> Escribinos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMES PERIÓDICOS -->
+    <section id="informes" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-4xl font-bold text-datagreen mb-4">Informes Periódicos</h2>
+                <p class="text-gray-600 text-lg sm:text-xl">Nuestros tres reportes clave de análisis económico, ganadero y financiero.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Informe 1 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">01</div>
+                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias al Grano</h3>
+                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Análisis detallado de mercados agrícolas, tendencias de precios y perspectivas de granos.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <a href="https://drive.google.com/open?id=19XhR0Qm2OrOZSc0OaD80ebv-9GymtWBW&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
+                        <a href="https://drive.google.com/open?id=19M3Uij-3QzJk4YHl-ywrJJSJzBbMlAtk&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
+                        <a href="https://estrategiasalgrano.com" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiasalgrano.com</a>
+                    </div>
+                </div>
+                <!-- Informe 2 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">02</div>
+                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias Financieras</h3>
+                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Cobertura cambiaria, tasas, cauciones y estrategias de tesorería para el sector.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <a href="https://drive.google.com/open?id=1KSUkO1uzDB3sateoJ0vwV9n-mr_cCAYc&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
+                        <a href="https://drive.google.com/open?id=10yx4t-2Hl8SEVV6JxpDTJ5FCR5ZmPXL2&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
+                        <a href="https://estrategiasfinancieras.com.ar/" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiasfinancieras.com.ar</a>
+                    </div>
+                </div>
+                <!-- Informe 3 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">03</div>
+                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias Ganaderas</h3>
+                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Evolución de faena, precios de hacienda, exportaciones y perspectivas para la cadena.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <a href="https://drive.google.com/open?id=1weN7NJI3lM_NxJP1azJG7qd7Vx3I2Rur&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
+                        <a href="https://drive.google.com/open?id=1WVCGnkUao4uC-n0oSi7a4A1aoMg4E6Un&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
+                        <a href="https://estrategiaganaderas.com.ar/" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiaganaderas.com.ar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="https://chat.whatsapp.com/DLBaQYVOZ2AATAWAB0BmH3" target="_blank" class="inline-flex items-center gap-3 bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-emerald-700 transition-all text-base sm:text-lg">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> Recibí los informes por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-12 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-4xl font-bold text-datagreen">Nuestros Servicios</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Asesoramiento Integral</span>
+                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">1. Asesoramiento Agropecuario</h3>
+                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Planes especializados para acompañar la gestión financiera y comercial de tu empresa.</p>
+                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
+                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Planes Disponibles:</h4>
+                            <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                                <li>Productores agropecuarios</li>
+                                <li>Dueños de campo que alquilan</li>
+                                <li>Empresas agro (acopios, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-100 pt-5">
+                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Áreas de Trabajo:</h4>
+                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Tesorería</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Eficiencia</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Comercial</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Insumos</span>
+                            </div>
+                        </div>
+                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Consultar</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Capacitación y Charlas</span>
+                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">2. Conferencias</h3>
+                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Disertaciones dinámicas y análisis macroeconómico y sectorial para eventos corporativos y técnicos.</p>
+                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
+                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Modalidades:</h4>
+                            <p class="text-base text-gray-700">Presencial y Virtual</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-100 pt-5">
+                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Temáticas Principales:</h4>
+                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Economía general</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Granos</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Ganadería</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Agrofinanzas</span>
+                            </div>
+                        </div>
+                        <a href="#contacto" onclick="switchTab('charla')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">A Medida</span>
+                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">3. Informes Personalizados</h3>
+                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Diseñamos reportes mensuales exclusivos para tus socios, clientes o canales con tu propia identidad.</p>
+                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
+                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Objetivo:</h4>
+                            <p class="text-base text-gray-700">Enriquecer la experiencia de tus clientes con análisis útil y profesional.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-100 pt-5">
+                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Contenidos Clave:</h4>
+                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Coyuntura</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Granos</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Carnes</span>
+                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Estadísticas</span>
+                            </div>
+                        </div>
+                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIO / SOBRE MÍ -->
+    <section id="bio" class="py-12 bg-datagreen text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="text-databeige font-bold uppercase tracking-wider text-base">Trayectoria</span>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white mt-3 mb-8">Perfil de David Miazzo</h2>
+                    <p class="text-gray-200 text-lg sm:text-xl mb-6 leading-relaxed font-medium">
+                        DATA Miazzo es la consultora del economista David Miazzo, enfocada en brindar soluciones de análisis económico de las cadenas agropecuarias y agroindustriales.
+                    </p>
+                    <p class="text-gray-300 text-base sm:text-lg mb-10 leading-relaxed">
+                        David Miazzo se ha desempeñado como Economista Jefe de FADA y se especializa en economía agropecuaria. Ha realizado consultorías para el Banco Mundial, el Banco Interamericano de Desarrollo (BID), la Corporación Andina de Fomento, el USDA, la FAO y diversos organismos nacionales e instituciones del sector.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-8 text-base text-databeige font-semibold">
+                        <div><i class="fa-solid fa-location-dot mr-2"></i> CABA</div>
+                        <div><i class="fa-solid fa-envelope mr-2"></i> davidmiazzo@gmail.com</div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="bg-white/10 p-4 rounded-3xl border border-white/20 backdrop-blur-sm">
+                        <img src="assets/foto-bio.jpg" alt="David Miazzo" class="rounded-2xl max-h-[400px] object-cover shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTIMEDIA (YOUTUBE & SPOTIFY) -->
+    <section id="multimedia" class="py-12 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+            
+            <!-- YouTube Container -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-datagray flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-youtube text-4xl text-red-600"></i> YouTube
+                    </h3>
+                </div>
+                
+                <!-- Contenedor dinámico de videos de YouTube -->
+                <div id="youtube-videos-container" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Esqueletos de carga -->
+                    <div class="animate-pulse bg-gray-100 rounded-xl h-32 border border-gray-200"></div>
+                    <div class="animate-pulse bg-gray-100 rounded-xl h-40 border border-gray-200"></div>
+                    <div class="animate-pulse bg-gray-100 rounded-xl h-40 border border-gray-200"></div>
+                </div>
+
+                <div class="mt-8 text-center border-t border-gray-100 pt-6">
+                    <a href="https://www.youtube.com/@DavidMiazzo" target="_blank" class="inline-flex items-center gap-2 font-bold text-base text-red-600 hover:text-red-700 transition-colors">
+                        Ver todos los videos <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Spotify Embed -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-datagray flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-spotify text-4xl text-emerald-600"></i> Spotify
+                    </h3>
+                </div>
+                <div>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/033LxUTkIUuQUk9G71a02p?utm_source=generator&si=b34b67880dc840d1" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUESTRO EQUIPO -->
+    <section id="equipo" class="py-12 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-4xl font-bold text-datagreen mb-4">Nuestro Equipo</h2>
+                <p class="text-gray-600 text-lg sm:text-xl">Profesionales especializados en economía, agro y finanzas.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Miembro 1 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
+                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
+                        <img src="https://media.licdn.com/dms/image/v2/C4E03AQGcaHAJ3_ZfhA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1553169766967?e=1785974400&v=beta&t=O8bnRdBTrWTCbgxv-L-qhEJex8an6RwfP3WbqgDy9RI" alt="David Miazzo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <h3 class="font-bold text-lg text-datagreen">David Miazzo</h3>
+                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
+                    <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <!-- Miembro 2 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
+                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQH6zbXpUYyGFw/profile-displayphoto-scale_400_400/B4EZl52jGGKoAg-/0/1758685967584?e=1785974400&v=beta&t=ZUYX9gx3xuw0akPl-lIUS0_x5okdW3VLyMueaGrmGmk" alt="Ciro Ricci" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <h3 class="font-bold text-lg text-datagreen">Ciro Ricci</h3>
+                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
+                    <a href="https://www.linkedin.com/in/ciro-ricci-/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <!-- Miembro 3 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
+                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFS-K6z3LPApA/profile-displayphoto-scale_400_400/B4DZxKWWJCGQAg-/0/1770773898901?e=1785974400&v=beta&t=8Ai6MikGOvcvLibq0OE7TGLQRfNmg4_YpesjSg43qgA" alt="Martina Ydiart" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <h3 class="font-bold text-lg text-datagreen">Martina Ydiart</h3>
+                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
+                    <a href="https://www.linkedin.com/in/martina-ydiart/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <!-- Miembro 4 -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 text-center shadow-sm group">
+                    <div class="w-24 h-24 mx-auto mb-4 sm:mb-5 rounded-full overflow-hidden border-2 border-datagreen">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHfcD3TEVY1xw/profile-displayphoto-crop_800_800/B4DZ.LXq7qGkAM-/0/1784749666382?e=1786579200&v=beta&t=9aEH8WPIR7dMF3ajlGB9kE2O2l1NfGXFhrpqzpJb4WY" alt="Laura Zamanillo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <h3 class="font-bold text-lg text-datagreen">Laura Zamanillo</h3>
+                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
+                    <a href="https://www.linkedin.com/in/laura-zamanillo-551a32173/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIOS DE CONTACTO / PIE -->
+    <section id="contacto" class="py-10 bg-datagray text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-3">Contacto y Solicitudes</h2>
+                <p class="text-gray-400 text-base">Seleccioná una opción para recibir informes o solicitar presupuestos.</p>
+            </div>
+
+            <!-- Pestañas de Formularios -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8" role="tablist">
+                <button onclick="switchTab('informes')" id="btn-informes" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-datagreen text-white transition-all shadow">Recibir Informes</button>
+                <button onclick="switchTab('charla')" id="btn-charla" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 transition-all">Presupuesto Charla</button>
+                <button onclick="switchTab('otros')" id="btn-otros" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 transition-all">Otros Servicios</button>
+            </div>
+
+            <!-- Contenedor de Formularios -->
+            <div class="bg-white text-datagray p-6 sm:p-8 rounded-2xl shadow-xl">
+                
+                <!-- Alerta de éxito -->
+                <div id="form-alert" class="hidden mb-4 p-3 rounded-xl bg-emerald-100 text-emerald-800 font-semibold text-center text-sm"></div>
+
+                <!-- Form 1: Recibir Informes (Predeterminado) -->
+                <form id="form-informes" class="space-y-4 form-content" onsubmit="submitForm(event, 'form-informes', '¡Suscripción exitosa! Te sumaremos a los informes.')">
+                    <input type="hidden" name="Tipo de Formulario" value="Suscripción Informes">
+                    <h3 class="text-lg font-bold text-datagreen mb-4">Suscribite para recibir los 3 informes</h3>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Nombre</label>
+                        <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
+                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
+                        <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Suscribirme</button>
+                </form>
+
+                <!-- Form 2: Presupuesto Charla -->
+                <form id="form-charla" class="space-y-4 form-content hidden" onsubmit="submitForm(event, 'form-charla', '¡Consulta enviada con éxito! Nos pondremos en contacto.')">
+                    <input type="hidden" name="Tipo de Formulario" value="Presupuesto Conferencias">
+                    <h3 class="text-lg font-bold text-datagreen mb-4">Presupuesto para conferencia</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-1.5">Nombre</label>
+                            <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
+                            <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
+                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Evento</label>
+                        <input type="text" name="Nombre del Evento" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Solicitar</button>
+                </form>
+
+                <!-- Form 3: Otros Servicios -->
+                <form id="form-otros" class="space-y-4 form-content hidden" onsubmit="submitForm(event, 'form-otros', '¡Mensaje enviado con éxito! Te responderemos a la brevedad.')">
+                    <input type="hidden" name="Tipo de Formulario" value="Otros Servicios">
+                    <h3 class="text-lg font-bold text-datagreen mb-4">Consultar por Asesoramiento</h3>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Nombre</label>
+                        <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
+                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
+                        <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1.5">Información sobre el servicio</label>
+                        <textarea name="Información Adicional/Servicio" rows="3" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Enviar Consulta</button>
+                </form>
+
+            </div>
+
+            <!-- Footer Info -->
+            <div class="mt-12 text-center border-t border-gray-800 pt-6 text-sm text-gray-400">
+                <img src="assets/logo-white.png" alt="Logo" class="h-6 mx-auto mb-3 opacity-80">
+                <p>Tucumán 1585 - PB, 1050 CABA Argentina</p>
+                <p class="mt-1">© 2026 DATA Miazzo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript para pestañas y envío de formularios -->
+    <script>
+        async function loadYouTubeVideos() {
+            const container = document.getElementById('youtube-videos-container');
+            if (!container) return;
+
+            // Videos de respaldo
+            const fallbackVideos = [
+                { id: 'Wgw6zp2kJRc', title: 'David Miazzo en Mercado Visión | Canal Rural' },
+                { id: 'wb65RpkkL44', title: 'Análisis Económico y Perspectivas Agro' },
+                { id: '0ovxq2qPOJg', title: 'Perspectivas Económicas y del Agro' }
+            ];
+
+            const rssUrl = encodeURIComponent('https://www.youtube.com/feeds/videos.xml?user=davidmiazzo');
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+                    const videos = data.items.slice(0, 3).map(item => {
+                        let videoId = '';
+                        if (item.guid && item.guid.includes('yt:video:')) {
+                            videoId = item.guid.replace('yt:video:', '');
+                        } else if (item.link) {
+                            const match = item.link.match(/(?:v=|\/embed\/|\/watch\?v=|\/v\/|https:\/\/youtu\.be\/)([^#&?]*)/);
+                            videoId = (match && match[1]) ? match[1] : '';
+                        }
+                        return {
+                            id: videoId,
+                            title: item.title || 'Video de DATA Miazzo',
+                            date: item.pubDate ? new Date(item.pubDate).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : ''
+                        };
+                    }).filter(v => v.id);
+
+                    if (videos.length > 0) {
+                        renderVideos(videos);
+                        return;
+                    }
+                }
+                renderVideos(fallbackVideos);
+            } catch (error) {
+                renderVideos(fallbackVideos);
+            }
+        }
+
+        function renderVideos(videos) {
+            const container = document.getElementById('youtube-videos-container');
+            if (!container) return;
+
+            container.innerHTML = videos.map(v => `
+                <a href="https://youtu.be/${v.id}" target="_blank" class="flex flex-col gap-3 bg-gray-50 border border-gray-200 rounded-xl p-3 hover:bg-gray-100 transition-colors group">
+                    <div class="relative w-full aspect-video flex-shrink-0 bg-black rounded-lg overflow-hidden">
+                        <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-colors">
+                            <i class="fa-solid fa-play text-white text-2xl drop-shadow-md"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <h4 class="font-bold text-sm text-datagray line-clamp-2 leading-tight group-hover:text-datagreen transition-colors" title="${v.title}">
+                            ${v.title}
+                        </h4>
+                        ${v.date ? `<span class="text-xs text-gray-500 block mt-1.5"><i class="fa-regular fa-calendar-days mr-1"></i>${v.date}</span>` : ''}
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadYouTubeVideos();
+        }
+
+        // --- CONFIGURACIÓN DEL FORMULARIO ---
+        // ¡REEMPLAZA EL TEXTO DE ABAJO CON LA URL QUE TE DIO APPS SCRIPT!
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxYgohLCa52AJWwearNVHOuYAbYVEbQO2B45U7evEjzTiux0tnYXa4vxlNBcn2lPqKJKQ/exec';
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.form-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-datagreen', 'text-white', 'shadow');
+                el.classList.add('gray-800', 'text-gray-300');
+            });
+
+            document.getElementById('form-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.remove('bg-gray-800', 'text-gray-300');
+            activeBtn.classList.add('bg-datagreen', 'text-white', 'shadow');
+            
+            document.getElementById('form-alert').classList.add('hidden');
+        }
+
+        function submitForm(event, formId, successMessage) {
+            event.preventDefault();
+            const form = document.getElementById(formId);
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.innerText;
+            
+            button.innerText = 'Enviando...';
+            button.disabled = true;
+
+            const data = new URLSearchParams(new FormData(form));
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: data, 
+                mode: 'no-cors' 
+            })
+                .then(() => {
+                    showMessage(successMessage);
+                    button.innerText = originalText;
+                    button.disabled = false;
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error);
+                    showMessage('Hubo un error al enviar. Por favor, intentá de nuevo.');
+                    button.innerText = originalText;
+                    button.disabled = false;
+                });
+        }
+
+        function showMessage(msg) {
+            const alertBox = document.getElementById('form-alert');
+            alertBox.innerText = msg;
+            alertBox.classList.remove('hidden');
+            setTimeout(() => { alertBox.classList.add('hidden'); }, 6000);
+        }
+    </script>
+</body>
+</html>
