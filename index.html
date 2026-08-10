@@ -140,16 +140,40 @@
             <div class="text-center max-w-3xl mx-auto mb-8">
                 <h2 class="text-4xl font-bold text-datagreen">Nuestros Servicios</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Servicio 1 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Asesoramiento</span>
+                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">1. Diagnóstico Comercial y Financiero</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Servicio puntual de análisis estratégico para evaluar la situación comercial y financiera de la empresa agropecuaria.</p>
+                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
+                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Metodología:</h4>
+                            <p class="text-sm text-gray-700">A través de un esquema ágil de dos jornadas de trabajo, analizamos la posición de la empresa y entregamos una hoja de ruta concreta para optimizar las ventas de granos, las coberturas de precios, la tesorería y la estructura de financiamiento.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-100 pt-3">
+                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Áreas de Trabajo:</h4>
+                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Comercial</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Tesorería</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Finanzas</span>
+                            </div>
+                        </div>
+                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
                     <div>
                         <span class="text-databeige font-bold uppercase tracking-wider text-sm">Asesoramiento Integral</span>
-                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">1. Asesoramiento Agropecuario</h3>
-                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Planes especializados para acompañar la gestión financiera y comercial de tu empresa.</p>
-                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
-                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Planes Disponibles:</h4>
-                            <ul class="list-disc list-inside text-base text-gray-700 space-y-2">
+                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">2. Comité Comercial y Financiero</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Planes especializados para acompañar la gestión financiera y comercial de tu empresa.</p>
+                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
+                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Planes Disponibles:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                                 <li>Productores agropecuarios</li>
                                 <li>Dueños de campo que alquilan</li>
                                 <li>Empresas agro (acopios, etc.)</li>
@@ -157,66 +181,66 @@
                         </div>
                     </div>
                     <div>
-                        <div class="border-t border-gray-100 pt-5">
-                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Áreas de Trabajo:</h4>
-                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Tesorería</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Eficiencia</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Comercial</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Insumos</span>
+                        <div class="border-t border-gray-100 pt-3">
+                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Áreas de Trabajo:</h4>
+                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Tesorería</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Eficiencia</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Comercial</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Insumos</span>
                             </div>
                         </div>
-                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Consultar</a>
-                    </div>
-                </div>
-
-                <!-- Servicio 2 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Capacitación y Charlas</span>
-                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">2. Conferencias</h3>
-                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Disertaciones dinámicas y análisis macroeconómico y sectorial para eventos corporativos y técnicos.</p>
-                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
-                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Modalidades:</h4>
-                            <p class="text-base text-gray-700">Presencial y Virtual</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border-t border-gray-100 pt-5">
-                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Temáticas Principales:</h4>
-                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Economía general</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Granos</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Ganadería</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Agrofinanzas</span>
-                            </div>
-                        </div>
-                        <a href="#contacto" onclick="switchTab('charla')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Presupuesto</a>
+                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
                     </div>
                 </div>
 
                 <!-- Servicio 3 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
                     <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">A Medida</span>
-                        <h3 class="text-2xl font-bold text-datagreen mt-3 mb-4">3. Informes Personalizados</h3>
-                        <p class="text-gray-600 mb-6 text-base leading-relaxed">Diseñamos reportes mensuales exclusivos para tus socios, clientes o canales con tu propia identidad.</p>
-                        <div class="bg-datagreen/5 p-5 rounded-xl mb-6">
-                            <h4 class="font-bold text-datagreen text-sm uppercase mb-3">Objetivo:</h4>
-                            <p class="text-base text-gray-700">Enriquecer la experiencia de tus clientes con análisis útil y profesional.</p>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Capacitación y Charlas</span>
+                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">3. Conferencias</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Disertaciones dinámicas y análisis macroeconómico y sectorial para eventos corporativos y técnicos.</p>
+                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
+                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Modalidades:</h4>
+                            <p class="text-sm text-gray-700">Presencial y Virtual</p>
                         </div>
                     </div>
                     <div>
-                        <div class="border-t border-gray-100 pt-5">
-                            <h4 class="font-bold text-sm text-datagray uppercase mb-3">Contenidos Clave:</h4>
-                            <div class="flex flex-wrap gap-2 text-sm text-gray-700">
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Coyuntura</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Granos</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Carnes</span>
-                                <span class="bg-gray-100 px-3 py-1.5 rounded-md">Estadísticas</span>
+                        <div class="border-t border-gray-100 pt-3">
+                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Temáticas Principales:</h4>
+                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Economía general</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Granos</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Ganadería</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Agrofinanzas</span>
                             </div>
                         </div>
-                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-3 rounded-xl hover:bg-opacity-90 transition-all text-base mt-6">Consultar</a>
+                        <a href="#contacto" onclick="switchTab('charla')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">A Medida</span>
+                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">4. Informes Personalizados</h3>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Diseñamos reportes mensuales exclusivos para tus socios, clientes o canales con tu propia identidad.</p>
+                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
+                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Objetivo:</h4>
+                            <p class="text-sm text-gray-700">Enriquecer la experiencia de tus clientes con análisis útil y profesional.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="border-t border-gray-100 pt-3">
+                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Contenidos Clave:</h4>
+                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Coyuntura</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Granos</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Carnes</span>
+                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Estadísticas</span>
+                            </div>
+                        </div>
+                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
                     </div>
                 </div>
             </div>
