@@ -1,0 +1,6 @@
+# El código de las funciones no se sirve como archivo público.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
