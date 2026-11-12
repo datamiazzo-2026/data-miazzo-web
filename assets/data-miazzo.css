@@ -243,3 +243,32 @@ a.dm-red-card:hover .sitio{color:var(--dm-acento);text-decoration:underline}
 a.dm-red-card:focus-visible{outline:2px solid var(--dm-acento);outline-offset:3px}
 .dm-red-card .logo-data{height:24px;width:auto;color:var(--dm-carbon);margin:6px 0 4px}
 .dm-pie-sitios{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
+
+/* 18. Navegación común a todos los sitios y dashboards
+   - .dm-sitios: barra fina arriba de todo, igual en los cuatro sitios y en los dashboards.
+   - .dm-dashhead: encabezado de los dashboards, con el mismo lockup que la landing.
+   - .dm-dash-tabs: pestañas de los dashboards con la tipografía de la navegación de las landings. */
+.dm-sitios{background:var(--dm-papel-calido);border-bottom:1px solid var(--dm-linea);position:relative;z-index:51}
+.dm-sitios-in{max-width:var(--dm-ancho);margin:0 auto;padding:0 20px;display:flex;gap:0 22px;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.dm-sitios-in::-webkit-scrollbar{display:none}
+.dm-sitios a{font:600 12px/1 var(--dm-f-display)!important;letter-spacing:.12em!important;text-transform:uppercase;color:var(--dm-salvia-texto)!important;text-decoration:none!important;padding:10px 0 8px;border-bottom:2px solid transparent;background:none!important}
+.dm-sitios a:hover{color:var(--dm-carbon)!important}
+.dm-sitios a[aria-current="page"]{color:var(--dm-carbon)!important;border-bottom-color:var(--c,var(--dm-verde))}
+.dm-sitios a:focus-visible{outline:2px solid var(--dm-verde);outline-offset:2px}
+
+html body .dm-dashhead{display:block!important;background:var(--dm-papel)!important;color:var(--dm-carbon)!important;border-bottom:1px solid var(--dm-linea)!important;box-shadow:none!important;padding:0!important;margin:0!important;border-radius:0!important;position:relative}
+.dm-dashhead .dm-top-in{min-height:72px}
+.dm-dashhead .dm-lockup .k{color:var(--dm-carbon)!important}
+.dm-dashhead .dm-lockup .w{color:var(--dm-acento)!important}
+.dm-dashhead .dm-lockup svg{color:var(--dm-carbon)!important}
+.dm-dash-acc{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;justify-content:flex-end}
+.dm-dash-fecha,.dm-dashhead .fecha,.dm-dashhead #chicago-status{font:500 13px var(--dm-f-texto)!important;color:var(--dm-salvia-texto)!important;opacity:1!important;margin:0!important}
+.dm-dashhead .dm-btn{font-size:14px}
+@media (max-width:640px){.dm-dash-fecha,.dm-dashhead .fecha,.dm-dashhead #chicago-status{display:none!important}}
+@media (max-width:480px){.dm-dashhead .dm-lockup .sep,.dm-dashhead .dm-lockup svg{display:none}}
+
+html body .dm-dash-tabs{background:var(--dm-papel)!important;border-bottom:1px solid var(--dm-linea)!important;box-shadow:none!important;gap:0 4px!important}
+html body .dm-dash-tabs > .tab,html body .dm-dash-tabs > .tab-btn,html body .dm-dash-tabs > button,html body .dm-dash-tabs > a{font:600 14px/1 var(--dm-f-display)!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:var(--dm-salvia-texto)!important;background:none!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;padding:16px 14px 14px!important;white-space:nowrap;box-shadow:none!important}
+html body .dm-dash-tabs > .tab:hover,html body .dm-dash-tabs > .tab-btn:hover{color:var(--dm-carbon)!important}
+html body .dm-dash-tabs > .tab.active,html body .dm-dash-tabs > .tab-btn.active{color:var(--dm-carbon)!important;border-bottom-color:var(--dm-acento)!important}
+@media (max-width:640px){.dm-sitios-pre{display:none}.dm-sitios-in{gap:0 16px;padding:0 16px}.dm-sitios a{font-size:11.5px!important;letter-spacing:.1em!important}}
