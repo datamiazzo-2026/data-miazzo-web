@@ -1,604 +1,383 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATA Miazzo - Consultora Económica</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        datagreen: '#024627',
-                        datagray: '#333333',
-                        databeige: '#c3a38c',
-                        datalight: '#fcfdfd'
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- FontAwesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts: Rajdhani -->
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Rajdhani', sans-serif; }
-    </style>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATA Miazzo · Consultora económica para el agro</title>
+  <meta name="description" content="Análisis económico, de mercados y financiero para empresas del agro, convertido en decisiones concretas. Datos para decidir.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/data-miazzo.css">
+  <style>
+    /* Ajustes propios de datamiazzo.com.ar (el resto está en assets/data-miazzo.css) */
+    html{scroll-behavior:smooth}
+    .dm-top .logo{height:24px;color:var(--dm-carbon)}
+    .hero-panel{background:rgba(252,253,253,.06);border:1px solid rgba(252,253,253,.18);border-radius:var(--dm-r);padding:22px 24px}
+    .hero-panel .dm-eyebrow{color:var(--dm-arena)}
+    .hero-panel ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:12px}
+    .hero-panel li{display:flex;gap:12px;align-items:baseline;font-size:16px;color:#D9DEDB}
+    .hero-panel li b{font:600 20px var(--dm-f-display);color:#FCFDFD;min-width:7.2em}
+    .linea{display:flex;flex-direction:column;gap:14px}
+    .linea .w{font-size:30px}
+    .linea p{flex:1}
+    .linea .acciones{display:grid;gap:10px}
+    .linea .dm-link{text-align:center}
+    .grupo{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;text-align:center}
+    .grupo p{color:var(--dm-salvia-texto)}
+    .servicio{display:flex;flex-direction:column;gap:10px}
+    .servicio h3{margin:0}
+    .servicio .dm-sunk{display:flex;flex-direction:column;gap:2px;font-size:15px}
+    .servicio .dm-sunk b{font:600 13px var(--dm-f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--dm-arena-profunda)}
+    .servicio p{flex:1}
+    .pie-card{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid var(--dm-borde);padding-top:14px;margin-top:4px}
+    .bio-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:center}
+    .bio-grid p{color:#4A4A4A;font-size:17px;margin-bottom:14px;max-width:62ch}
+    .bio-grid p.fuerte{color:var(--dm-carbon);font-size:19px}
+    .bio-foto{border-radius:var(--dm-r-s) var(--dm-r-s) var(--dm-r-d) var(--dm-r-s);overflow:hidden;max-width:420px;justify-self:center;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+    .bio-datos{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;font-weight:600;color:var(--dm-arena-profunda)}
+    .bio-datos a{color:var(--dm-verde);text-decoration:none}
+    @media (max-width:860px){.bio-grid{grid-template-columns:1fr}}
+    .media{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+    @media (max-width:900px){.media{grid-template-columns:1fr}}
+    .media h3{display:flex;align-items:center;gap:10px}
+    #youtube-videos-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}
+    .yt{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--dm-carbon)}
+    .yt .th{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--dm-negro)}
+    .yt .th img{width:100%;height:100%;object-fit:cover;opacity:.92}
+    .yt .th i{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:22px}
+    .yt h4{font:600 16px/1.2 var(--dm-f-display);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .yt:hover h4{color:var(--dm-verde)}
+    .yt span{font-size:12.5px;color:var(--dm-salvia-texto)}
+    .esqueleto{aspect-ratio:16/9;border-radius:10px;background:var(--dm-papel-calido)}
+    .persona{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+    .persona img{width:104px;height:104px;border-radius:50%;object-fit:cover;filter:grayscale(1);transition:filter .3s}
+    .persona:hover img{filter:none}
+    .inicial{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:var(--dm-papel-calido);color:var(--dm-arena-profunda);font:600 34px var(--dm-f-display)}
+    .persona h3{font-size:22px;margin:0}
+    .contacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:start}
+    @media (max-width:900px){.contacto{grid-template-columns:1fr}}
+    .contacto .dm-card h3{font-size:22px}
+    .contacto-datos{display:grid;gap:14px;margin-top:26px;color:var(--dm-carbon)}
+    .contacto-datos a{color:var(--dm-verde);text-decoration:none;font-weight:600}
+    .contacto-datos i{width:22px;color:var(--dm-arena-profunda)}
+    .form-content[hidden]{display:none}
+  </style>
 </head>
-<body class="bg-datalight text-datagray antialiased selection:bg-datagreen selection:text-white text-base sm:text-lg">
+<body class="dm">
 
-    <!-- HEADER / NAVEGACIÓN -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <img src="assets/logo-color.png" alt="Logo DATA Miazzo" class="h-10 w-auto">
-            </a>
-            <nav class="hidden md:flex items-center space-x-8 font-semibold text-lg">
-                <a href="#inicio" class="hover:text-datagreen transition-colors">Inicio</a>
-                <a href="#informes" class="hover:text-datagreen transition-colors">Informes</a>
-                <a href="#servicios" class="hover:text-datagreen transition-colors">Servicios</a>
-                <a href="#bio" class="hover:text-datagreen transition-colors">Bio</a>
-                <a href="#multimedia" class="hover:text-datagreen transition-colors">Multimedia</a>
-                <a href="#equipo" class="hover:text-datagreen transition-colors">Equipo</a>
-                <a href="#contacto" class="hover:text-datagreen transition-colors">Contacto</a>
-            </nav>
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="https://x.com/DavidMiazzo" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
-                <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="https://www.instagram.com/dmiazzo/" target="_blank" class="text-datagray hover:text-datagreen transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="http://wa.me/5493584377218" target="_blank" class="bg-datagreen text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-opacity-90 transition-all text-base">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
-                </a>
-            </div>
+  <header class="dm-top">
+    <div class="dm-top-in">
+      <a href="#inicio" class="dm-brand"><svg class="logo" role="img" aria-label="DATA Miazzo" xmlns="http://www.w3.org/2000/svg" viewBox="444.09 430.33 469.81 71.48"><path fill-rule="evenodd" fill="currentColor" d="M 818.207031 430.445312 L 820.246094 430.445312 C 820.441406 430.445312 820.605469 430.496094 820.726562 430.589844 C 820.890625 430.71875 820.972656 430.902344 820.972656 431.136719 L 820.972656 446.332031 C 820.972656 446.566406 820.890625 446.746094 820.726562 446.875 C 820.605469 446.972656 820.441406 447.019531 820.246094 447.019531 L 819.152344 447.019531 C 818.949219 447.019531 818.78125 446.976562 818.65625 446.882812 L 818.628906 446.863281 C 818.46875 446.738281 818.386719 446.558594 818.386719 446.332031 L 818.386719 433.695312 L 812.148438 443.191406 C 812.042969 443.320312 811.917969 443.417969 811.777344 443.484375 C 811.636719 443.550781 811.488281 443.582031 811.332031 443.582031 L 810.082031 443.582031 C 809.910156 443.582031 809.753906 443.550781 809.617188 443.480469 C 809.472656 443.40625 809.351562 443.292969 809.265625 443.144531 L 802.953125 433.660156 L 802.953125 446.332031 C 802.953125 446.566406 802.867188 446.75 802.703125 446.875 L 802.679688 446.894531 C 802.558594 446.976562 802.40625 447.019531 802.222656 447.019531 L 801.128906 447.019531 C 800.933594 447.019531 800.773438 446.972656 800.648438 446.875 C 800.484375 446.75 800.402344 446.566406 800.402344 446.332031 L 800.402344 431.136719 C 800.402344 430.898438 800.484375 430.71875 800.648438 430.589844 C 800.769531 430.496094 800.933594 430.445312 801.128906 430.445312 L 801.421875 430.4375 C 802.113281 430.414062 803.503906 430.367188 803.789062 430.753906 L 810.6875 441.21875 L 817.578125 430.761719 C 817.644531 430.648438 817.742188 430.5625 817.863281 430.507812 C 817.960938 430.46875 818.078125 430.445312 818.207031 430.445312 Z M 844.867188 430.652344 L 852.300781 446.59375 C 852.335938 446.667969 852.3125 446.757812 852.246094 446.796875 C 852.226562 446.808594 852.207031 446.816406 852.183594 446.8125 L 849.617188 446.816406 C 849.5625 446.816406 849.515625 446.777344 849.492188 446.722656 L 844.191406 434.925781 L 838.132812 446.738281 C 838.109375 446.789062 838.0625 446.816406 838.015625 446.816406 L 835.433594 446.816406 C 835.359375 446.816406 835.300781 446.746094 835.300781 446.664062 C 835.300781 446.632812 835.308594 446.601562 835.324219 446.578125 L 843.613281 430.636719 C 843.640625 430.589844 843.683594 430.5625 843.730469 430.5625 L 844.746094 430.5625 C 844.800781 430.5625 844.847656 430.597656 844.867188 430.652344 Z M 827.910156 446.277344 L 827.910156 431.101562 C 827.910156 430.835938 828.003906 430.632812 828.1875 430.492188 L 828.21875 430.46875 C 828.359375 430.375 828.53125 430.328125 828.746094 430.328125 L 830.164062 430.328125 C 830.410156 430.328125 830.605469 430.382812 830.75 430.480469 C 830.953125 430.621094 831.050781 430.828125 831.050781 431.101562 L 831.050781 446.277344 C 831.050781 446.539062 830.960938 446.742188 830.773438 446.882812 L 830.742188 446.90625 C 830.605469 447 830.429688 447.046875 830.214844 447.046875 L 828.746094 447.046875 C 828.515625 447.046875 828.328125 446.992188 828.183594 446.882812 L 828.160156 446.863281 C 827.992188 446.722656 827.910156 446.527344 827.910156 446.277344 Z M 854.726562 446.308594 L 854.726562 445.871094 C 854.726562 445.679688 854.773438 445.511719 854.855469 445.355469 C 854.921875 445.222656 855.019531 445.101562 855.136719 444.984375 L 867.386719 432.527344 L 855.953125 432.527344 C 855.71875 432.527344 855.527344 432.480469 855.382812 432.386719 C 855.171875 432.257812 855.066406 432.054688 855.066406 431.789062 L 855.066406 431.070312 C 855.066406 430.800781 855.171875 430.601562 855.378906 430.46875 L 855.40625 430.453125 C 855.546875 430.371094 855.730469 430.328125 855.953125 430.328125 L 870.621094 430.328125 C 870.871094 430.328125 871.070312 430.375 871.21875 430.460938 L 871.242188 430.476562 C 871.453125 430.609375 871.554688 430.808594 871.554688 431.070312 L 871.554688 431.753906 C 871.554688 431.910156 871.519531 432.0625 871.453125 432.210938 C 871.394531 432.339844 871.304688 432.464844 871.195312 432.578125 L 859.136719 444.851562 L 870.960938 444.851562 C 871.210938 444.851562 871.414062 444.894531 871.5625 444.980469 C 871.785156 445.113281 871.898438 445.316406 871.898438 445.589844 L 871.898438 446.308594 C 871.898438 446.578125 871.785156 446.785156 871.5625 446.914062 C 871.414062 447 871.210938 447.046875 870.960938 447.046875 L 855.660156 447.046875 C 855.414062 447.046875 855.210938 447.003906 855.0625 446.914062 C 854.839844 446.785156 854.726562 446.582031 854.726562 446.308594 Z M 874.523438 446.308594 L 874.523438 445.871094 C 874.523438 445.679688 874.566406 445.511719 874.652344 445.355469 C 874.71875 445.222656 874.816406 445.101562 874.933594 444.984375 L 887.183594 432.527344 L 875.75 432.527344 C 875.515625 432.527344 875.324219 432.480469 875.179688 432.386719 C 874.96875 432.257812 874.863281 432.054688 874.863281 431.789062 L 874.863281 431.070312 C 874.863281 430.800781 874.96875 430.601562 875.175781 430.46875 L 875.203125 430.453125 C 875.34375 430.371094 875.527344 430.328125 875.75 430.328125 L 890.417969 430.328125 C 890.667969 430.328125 890.867188 430.375 891.015625 430.464844 C 891.238281 430.59375 891.351562 430.796875 891.351562 431.070312 L 891.351562 431.753906 C 891.351562 431.910156 891.316406 432.0625 891.25 432.210938 C 891.191406 432.339844 891.101562 432.464844 890.992188 432.578125 L 878.933594 444.851562 L 890.757812 444.851562 C 891.007812 444.851562 891.207031 444.894531 891.355469 444.980469 C 891.582031 445.113281 891.695312 445.316406 891.695312 445.589844 L 891.695312 446.308594 C 891.695312 446.578125 891.582031 446.785156 891.359375 446.914062 C 891.210938 447 891.007812 447.046875 890.757812 447.046875 L 875.457031 447.046875 C 875.207031 447.046875 875.007812 447.003906 874.859375 446.914062 C 874.636719 446.785156 874.523438 446.582031 874.523438 446.308594 Z M 906.65625 447.046875 L 902.453125 447.046875 C 901.375 447.046875 900.402344 446.945312 899.542969 446.738281 C 898.667969 446.535156 897.910156 446.222656 897.269531 445.808594 C 896.609375 445.382812 896.109375 444.867188 895.773438 444.269531 C 895.429688 443.664062 895.257812 442.976562 895.257812 442.214844 L 895.257812 435.160156 C 895.257812 434.398438 895.429688 433.710938 895.773438 433.105469 C 896.109375 432.507812 896.609375 431.996094 897.269531 431.570312 C 897.910156 431.15625 898.667969 430.84375 899.539062 430.636719 C 900.402344 430.433594 901.371094 430.328125 902.453125 430.328125 L 906.65625 430.328125 C 907.734375 430.328125 908.710938 430.433594 909.574219 430.636719 C 910.445312 430.839844 911.210938 431.152344 911.859375 431.570312 C 912.53125 431.996094 913.035156 432.507812 913.375 433.101562 L 913.386719 433.125 C 913.726562 433.730469 913.898438 434.40625 913.898438 435.160156 L 913.898438 442.214844 C 913.898438 442.976562 913.722656 443.664062 913.375 444.273438 C 913.035156 444.867188 912.53125 445.378906 911.859375 445.808594 C 911.210938 446.222656 910.445312 446.535156 909.570312 446.738281 C 908.707031 446.945312 907.734375 447.046875 906.65625 447.046875 Z M 902.648438 444.851562 L 906.460938 444.851562 C 907.1875 444.851562 907.828125 444.785156 908.375 444.660156 C 908.914062 444.535156 909.367188 444.351562 909.730469 444.109375 C 910.078125 443.878906 910.335938 443.605469 910.503906 443.285156 C 910.671875 442.96875 910.753906 442.605469 910.753906 442.1875 L 910.753906 435.191406 C 910.753906 434.363281 910.414062 433.71875 909.730469 433.265625 C 909.367188 433.023438 908.914062 432.839844 908.375 432.714844 C 907.828125 432.589844 907.1875 432.527344 906.460938 432.527344 L 902.648438 432.527344 C 901.921875 432.527344 901.28125 432.589844 900.738281 432.714844 C 900.207031 432.839844 899.761719 433.023438 899.40625 433.265625 C 899.066406 433.492188 898.8125 433.769531 898.648438 434.089844 C 898.484375 434.40625 898.402344 434.773438 898.402344 435.191406 L 898.402344 442.1875 C 898.402344 442.605469 898.484375 442.972656 898.648438 443.285156 C 898.8125 443.605469 899.066406 443.882812 899.40625 444.113281 C 899.761719 444.351562 900.207031 444.535156 900.738281 444.660156 C 901.28125 444.785156 901.917969 444.851562 902.648438 444.851562 "/><path fill-rule="nonzero" fill="currentColor" d="M 457.816406 495.148438 L 490.78125 495.148438 C 496.464844 495.148438 500.820312 494.195312 503.847656 492.300781 C 506.871094 490.402344 508.386719 489.960938 508.386719 486.386719 L 508.386719 446.742188 C 508.386719 439.394531 495.402344 437.980469 490.78125 437.980469 L 455.496094 437.980469 C 455.066406 437.980469 454.703125 438.019531 454.421875 438.105469 L 451.648438 438.105469 L 451.648438 474.972656 C 451.648438 475.570312 451.183594 476.09375 450.65625 476.09375 L 445.078125 476.09375 C 444.550781 476.09375 444.085938 475.589844 444.085938 474.972656 L 444.085938 432.011719 C 444.085938 431.425781 444.492188 430.941406 445 430.894531 C 445.300781 430.738281 445.710938 430.65625 446.230469 430.65625 L 491.710938 430.65625 C 499.738281 430.65625 506.070312 432.074219 510.703125 434.902344 C 515.335938 437.730469 517.652344 441.601562 517.652344 446.515625 L 517.652344 486.613281 C 517.652344 491.523438 515.332031 494.742188 510.703125 497.570312 C 506.070312 500.394531 499.734375 501.8125 491.710938 501.8125 L 452.378906 501.8125 C 451.148438 501.8125 450.527344 501.367188 450.527344 500.472656 L 450.527344 496.175781 C 450.527344 495.652344 450.90625 495.226562 451.367188 495.226562 L 457.417969 495.226562 C 458.789062 495.226562 455.046875 495.148438 457.816406 495.148438 Z M 544.148438 501.484375 L 538.40625 501.484375 C 537.046875 501.484375 536.613281 501.039062 537.105469 500.144531 L 573.980469 431.996094 C 574.351562 431.105469 575.21875 430.332031 576.574219 430.332031 L 585.285156 430.332031 C 586.519531 430.332031 587.386719 431.105469 587.878906 431.996094 L 624.753906 500.144531 C 625.125 501.039062 624.691406 501.484375 623.457031 501.484375 L 617.527344 501.484375 C 616.292969 501.484375 615.488281 501.039062 615.117188 500.144531 L 606.601562 486.578125 L 581.207031 437.457031 L 580.46875 437.457031 L 545.617188 501.132812 C 545.210938 501.367188 544.714844 501.484375 544.148438 501.484375 Z M 672.003906 501.8125 L 666.632812 501.8125 C 665.277344 501.8125 664.59375 501.367188 664.59375 500.472656 L 664.59375 438.65625 C 664.59375 437.988281 663.972656 437.652344 662.738281 437.652344 L 635.871094 437.652344 C 634.390625 437.652344 633.648438 437.242188 633.648438 436.421875 L 633.648438 431.886719 C 633.648438 431.066406 634.390625 430.65625 635.871094 430.65625 L 702.578125 430.65625 C 704.0625 430.65625 704.800781 431.070312 704.800781 431.886719 L 704.800781 436.421875 C 704.800781 437.242188 704.058594 437.652344 702.578125 437.652344 L 675.710938 437.652344 C 674.476562 437.652344 673.859375 437.992188 673.859375 438.65625 L 673.859375 500.472656 C 673.859375 501.363281 673.234375 501.8125 672.003906 501.8125 Z M 720.738281 501.8125 L 714.992188 501.8125 C 713.636719 501.8125 713.203125 501.367188 713.695312 500.472656 L 750.570312 431.671875 C 750.941406 430.777344 751.804688 430.332031 753.164062 430.332031 L 761.875 430.332031 C 763.109375 430.332031 763.972656 430.777344 764.46875 431.671875 L 801.34375 500.144531 C 801.714844 501.039062 801.277344 501.484375 800.046875 501.484375 L 794.117188 501.484375 C 792.882812 501.484375 792.078125 501.039062 791.707031 500.144531 L 786.703125 492.195312 L 757.796875 437.457031 L 757.054688 437.457031 L 722.675781 501.101562 C 722.195312 501.578125 721.542969 501.8125 720.738281 501.8125 "/></svg></a>
+      <nav class="dm-nav" aria-label="Secciones">
+        <a href="#informes">Informes</a><a href="#servicios">Servicios</a><a href="#bio">Bio</a><a href="#multimedia">Multimedia</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a>
+      </nav>
+      <div class="dm-top-cta">
+        <div class="dm-social">
+          <a href="https://x.com/DavidMiazzo" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/dmiazzo/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
-    </header>
+        <a href="https://wa.me/5493584377218" target="_blank" rel="noopener" class="dm-btn dm-btn-verde dm-btn-sm"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- INICIO / HERO -->
-    <section id="inicio" class="relative bg-datagreen text-white py-20 lg:py-28 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://plus.unsplash.com/premium_photo-1661963442576-16ce45d2cd55?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8');">
-        <!-- Overlay oscuro para garantizar legibilidad -->
-        <div class="absolute inset-0 bg-black/60 z-0"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-4xl">
-            <span class="text-databeige text-base font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-6 shadow-sm">Consultora Económica</span>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">Especialistas en economía, finanzas y agro.</h1>
-            <p class="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-medium">Bajamos la coyuntura económica, financiera y política a tu día a día. Asesoramiento personalizado para decisiones informadas.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#servicios" class="bg-databeige text-datagray font-bold px-8 py-2.5 rounded-lg hover:bg-opacity-90 transition-all text-lg shadow-lg inline-flex items-center justify-center">Nuestros Servicios</a>
-                <a href="https://wa.me/5493584377218" target="_blank" class="border-2 border-white/60 bg-black/30 text-white font-bold px-8 py-2.5 rounded-lg hover:bg-white hover:text-datagreen transition-all inline-flex items-center justify-center gap-3 text-lg backdrop-blur-sm">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Escribinos
-                </a>
-            </div>
+  <section id="inicio" class="dm-portada">
+    <img src="assets/portada.jpg" alt="" fetchpriority="high">
+    <div class="dm-wrap">
+      <span class="dm-eyebrow">Consultora económica · agro y finanzas</span>
+      <h1>Datos para <em>decidir.</em></h1>
+      <p>Análisis económico, de mercados y financiero para empresas del agro, convertido en recomendaciones concretas: cuándo vender, cómo cubrirse, qué hacer con la tesorería.</p>
+      <div class="dm-ctas">
+        <a href="#servicios" class="dm-btn dm-btn-arena">Ver servicios</a>
+        <a href="https://wa.me/5493584377218" target="_blank" rel="noopener" class="dm-btn dm-btn-claro">Escribinos por WhatsApp</a>
+      </div>
+    </div>
+    <a class="dm-flotante" href="#informes"><span class="k">Informes gratuitos</span><span class="v">Al Grano · Financieras · Ganaderas</span><span class="d">PDF, audio y grupo de WhatsApp</span></a>
+  </section>
+
+  <section id="informes" class="dm-band dm-band-arena">
+    <div class="dm-wrap">
+      <div class="dm-band-head">
+        <h2>Informes periódicos</h2>
+        <p class="dm-lede">Tres informes con recomendaciones concretas. Gratis, por mail, WhatsApp o Spotify.</p>
+      </div>
+      <div class="dm-grid dm-g3">
+        <article class="dm-card dm-informe" style="--dm-acento:var(--dm-grano)">
+          <span class="k">ESTRATEGIAS</span><span class="w">AL GRANO</span>
+          <p>Soja, maíz y trigo: cuándo vender, qué pase tomar y cómo cubrirse.</p>
+          <div class="fila">
+            <a href="https://drive.google.com/open?id=1t9J8vuwhGjUOhT5pj8gWNngKryTzNdym&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-acento dm-btn-sm">Último informe</a>
+            <a href="https://drive.google.com/open?id=1952O5xONcdM3CVovlRrFP__wJ3iE_VAF&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-borde dm-btn-sm">Audio</a>
+          </div>
+          <a href="https://estrategiasalgrano.com" target="_blank" rel="noopener" class="sitio">estrategiasalgrano.com →</a>
+        </article>
+        <article class="dm-card dm-informe" style="--dm-acento:var(--dm-financieras)">
+          <span class="k">ESTRATEGIAS</span><span class="w">FINANCIERAS</span>
+          <p>Tasas, dólar futuro, financiamiento e inversiones para la empresa.</p>
+          <div class="fila">
+            <a href="https://drive.google.com/open?id=1M_qzApehgyOr-_ufcT4m8DeEzHDuuLZ5&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-acento dm-btn-sm">Último informe</a>
+            <a href="https://drive.google.com/open?id=1FQS50sVdkbDiL8vYGrSfs8CAbZOo7sZS&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-borde dm-btn-sm">Audio</a>
+          </div>
+          <a href="https://estrategiasfinancieras.com.ar/" target="_blank" rel="noopener" class="sitio">estrategiasfinancieras.com.ar →</a>
+        </article>
+        <article class="dm-card dm-informe" style="--dm-acento:var(--dm-ganaderas)">
+          <span class="k">ESTRATEGIAS</span><span class="w">GANADERAS</span>
+          <p>Hacienda, relaciones de precios, consumo y exportación.</p>
+          <div class="fila">
+            <a href="https://drive.google.com/open?id=1F_XNvYA6g0q88V8LSN48DblqGYOT185Y&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-acento dm-btn-sm">Último informe</a>
+            <a href="https://drive.google.com/open?id=14oZhsvzNBrUUzIYs68a7nUS4kx3AvSP2&usp=drive_fs" target="_blank" rel="noopener" class="dm-btn dm-btn-borde dm-btn-sm">Audio</a>
+          </div>
+          <a href="https://estrategiasganaderas.com.ar/" target="_blank" rel="noopener" class="sitio">estrategiasganaderas.com.ar →</a>
+        </article>
+      </div>
+      <div class="grupo">
+        <p>¿Querés recibirlos apenas salen?</p>
+        <a href="https://chat.whatsapp.com/GyNe46k8SbIIdz19D3R719?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" class="dm-btn dm-btn-verde"><i class="fa-brands fa-whatsapp"></i> Sumate al grupo de WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="dm-band dm-band-blanca">
+    <div class="dm-wrap">
+      <div class="dm-band-head">
+        <h2>Servicios</h2>
+        <p class="dm-lede">Llevamos el análisis a los números de tu empresa: productores, empresas del agro y propietarios que alquilan.</p>
+      </div>
+      <div class="dm-grid dm-g2">
+        <article class="dm-card servicio">
+          <span class="dm-eyebrow">Servicio puntual</span>
+          <h3>Diagnóstico Comercial y Financiero</h3>
+          <p>Dos reuniones para ver dónde está parada la empresa: primero auditamos los números; después entregamos un plan de acción para la campaña.</p>
+          <div class="dm-sunk"><b>Cómo se trabaja</b><span>Reunión 1: auditoría de números · Reunión 2: plan de acción.</span></div>
+          <div class="pie-card"><div class="dm-tags"><span class="dm-chip plano">Comercial</span><span class="dm-chip plano">Tesorería</span><span class="dm-chip plano">Finanzas</span></div>
+          <a href="#contacto" data-form="otros" class="dm-btn dm-btn-verde dm-btn-sm">Consultar</a></div>
+        </article>
+        <article class="dm-card servicio">
+          <span class="dm-eyebrow">Servicio mensual</span>
+          <h3>Comité Comercial y Financiero</h3>
+          <p>Reuniones mensuales y seguimiento al día para decidir mejor ventas, coberturas, compras de insumos y tesorería.</p>
+          <div class="dm-sunk"><b>Tres planes</b><span>Productores · Empresas del agro (acopios, industrias, maquinaria) · Propietarios que alquilan.</span></div>
+          <div class="pie-card"><div class="dm-tags"><span class="dm-chip plano">Tesorería</span><span class="dm-chip plano">Comercial</span><span class="dm-chip plano">Insumos</span><span class="dm-chip plano">Eficiencia</span></div>
+          <a href="#contacto" data-form="otros" class="dm-btn dm-btn-verde dm-btn-sm">Consultar</a></div>
+        </article>
+        <article class="dm-card servicio">
+          <span class="dm-eyebrow">Presencial o virtual</span>
+          <h3>Conferencias</h3>
+          <p>Análisis macroeconómico y sectorial para eventos de empresas, cooperativas y entidades técnicas.</p>
+          <div class="dm-sunk"><b>Temas</b><span>Economía · Granos · Ganadería · Agrofinanzas.</span></div>
+          <div class="pie-card"><div class="dm-tags"><span class="dm-chip plano">Economía</span><span class="dm-chip plano">Granos</span><span class="dm-chip plano">Ganadería</span><span class="dm-chip plano">Agrofinanzas</span></div>
+          <a href="#contacto" data-form="charla" class="dm-btn dm-btn-verde dm-btn-sm">Pedir presupuesto</a></div>
+        </article>
+        <article class="dm-card servicio">
+          <span class="dm-eyebrow">Con tu marca</span>
+          <h3>Informes a medida</h3>
+          <p>Informes mensuales para tus socios, clientes o canales, con tu identidad y nuestro análisis.</p>
+          <div class="dm-sunk"><b>Contenidos</b><span>Coyuntura · Granos · Carnes · Estadísticas.</span></div>
+          <div class="pie-card"><div class="dm-tags"><span class="dm-chip plano">Coyuntura</span><span class="dm-chip plano">Granos</span><span class="dm-chip plano">Carnes</span><span class="dm-chip plano">Estadísticas</span></div>
+          <a href="#contacto" data-form="otros" class="dm-btn dm-btn-verde dm-btn-sm">Consultar</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="bio" class="dm-band dm-band-arena">
+    <div class="dm-wrap bio-grid">
+      <div>
+        <h2>David Miazzo</h2>
+        <p class="fuerte">DATA Miazzo es la consultora del economista David Miazzo, enfocada en el análisis económico de las cadenas agropecuarias y agroindustriales.</p>
+        <p>David Miazzo se desempeñó como Economista Jefe de FADA y se especializa en economía agropecuaria. Realizó consultorías para el Banco Mundial, el Banco Interamericano de Desarrollo (BID), la Corporación Andina de Fomento, el USDA, la FAO y diversos organismos nacionales e instituciones del sector.</p>
+        <div class="bio-datos"><span><i class="fa-solid fa-location-dot"></i> CABA</span><a href="mailto:datamiazzo@gmail.com"><i class="fa-solid fa-envelope"></i> datamiazzo@gmail.com</a></div>
+      </div>
+      <div class="bio-foto"><img src="assets/foto-bio.jpg" alt="David Miazzo"></div>
+    </div>
+  </section>
+
+  <section id="multimedia" class="dm-band dm-band-arena">
+    <div class="dm-wrap">
+      <div class="dm-band-head">
+        <h2>Multimedia</h2>
+        <p class="dm-lede">Entrevistas, charlas y los audios de los informes.</p>
+      </div>
+      <div class="media">
+        <div class="dm-card">
+          <h3><i class="fa-brands fa-youtube" style="color:#A8443A"></i> YouTube</h3>
+          <div id="youtube-videos-container"><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div></div>
+          <p style="margin-top:16px"><a href="https://www.youtube.com/@DavidMiazzo" target="_blank" rel="noopener" class="dm-link">Ver todos los videos →</a></p>
         </div>
-    </section>
-
-    <!-- INFORMES PERIÓDICOS -->
-    <section id="informes" class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-8">
-                <h2 class="text-4xl font-bold text-datagreen mb-4">Informes Periódicos</h2>
-                <p class="text-gray-600 text-lg sm:text-xl">Nuestros tres reportes clave de análisis económico, ganadero y financiero.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Informe 1 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">01</div>
-                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias al Grano</h3>
-                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Análisis detallado de mercados agrícolas, tendencias de precios y perspectivas de granos.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <a href="https://drive.google.com/open?id=1t9J8vuwhGjUOhT5pj8gWNngKryTzNdym&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
-                        <a href="https://drive.google.com/open?id=1952O5xONcdM3CVovlRrFP__wJ3iE_VAF&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
-                        <a href="https://estrategiasalgrano.com" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiasalgrano.com</a>
-                    </div>
-                </div>
-                <!-- Informe 2 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">02</div>
-                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias Financieras</h3>
-                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Cobertura cambiaria, tasas, cauciones y estrategias de tesorería para el sector.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <a href="https://drive.google.com/open?id=1M_qzApehgyOr-_ufcT4m8DeEzHDuuLZ5&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
-                        <a href="https://drive.google.com/open?id=1FQS50sVdkbDiL8vYGrSfs8CAbZOo7sZS&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
-                        <a href="https://estrategiasfinancieras.com.ar/" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiasfinancieras.com.ar</a>
-                    </div>
-                </div>
-                <!-- Informe 3 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <div class="w-12 h-12 bg-datagreen text-white rounded-xl flex items-center justify-center text-xl font-bold mb-5">03</div>
-                        <h3 class="text-2xl font-bold mb-3 text-datagreen">Estrategias Ganaderas</h3>
-                        <p class="text-gray-600 mb-8 text-base leading-relaxed">Evolución de faena, precios de hacienda, exportaciones y perspectivas para la cadena.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <a href="https://drive.google.com/open?id=1F_XNvYA6g0q88V8LSN48DblqGYOT185Y&usp=drive_fs" target="_blank" class="block text-center bg-datagreen text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-all text-base">Ver Último Informe</a>
-                        <a href="https://drive.google.com/open?id=14oZhsvzNBrUUzIYs68a7nUS4kx3AvSP2&usp=drive_fs" target="_blank" class="block text-center border-2 border-datagreen text-datagreen py-3 rounded-xl font-semibold hover:bg-datagreen hover:text-white transition-all text-base"><i class="fa-solid fa-volume-high"></i> Escuchar Audio</a>
-                        <a href="https://estrategiaganaderas.com.ar/" target="_blank" class="block text-center text-sm text-gray-500 hover:underline">estrategiaganaderas.com.ar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <a href="https://chat.whatsapp.com/GyNe46k8SbIIdz19D3R719?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="inline-flex items-center gap-3 bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-emerald-700 transition-all text-base sm:text-lg">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Recibí los informes por WhatsApp
-                </a>
-            </div>
+        <div class="dm-card">
+          <h3><i class="fa-brands fa-spotify" style="color:#2E9A5A"></i> Spotify</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px;border:0" src="https://open.spotify.com/embed/show/033LxUTkIUuQUk9G71a02p?utm_source=generator&si=b34b67880dc840d1" width="100%" height="232" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Audios de los informes en Spotify"></iframe>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="py-12 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-8">
-                <h2 class="text-4xl font-bold text-datagreen">Nuestros Servicios</h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Servicio 1 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Asesoramiento</span>
-                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">1. Diagnóstico Comercial y Financiero</h3>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Servicio puntual de análisis estratégico para evaluar la situación comercial y financiera de la empresa agropecuaria.</p>
-                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
-                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Metodología:</h4>
-                            <p class="text-sm text-gray-700">A través de un esquema ágil de dos jornadas de trabajo, analizamos la posición de la empresa y entregamos una hoja de ruta concreta para optimizar las ventas de granos, las coberturas de precios, la tesorería y la estructura de financiamiento.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border-t border-gray-100 pt-3">
-                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Áreas de Trabajo:</h4>
-                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Comercial</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Tesorería</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Finanzas</span>
-                            </div>
-                        </div>
-                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
-                    </div>
-                </div>
+  <section id="equipo" class="dm-band dm-band-blanca">
+    <div class="dm-wrap">
+      <div class="dm-band-head">
+        <h2>Equipo</h2>
+        <p class="dm-lede">Economistas especializados en agro y finanzas.</p>
+      </div>
+      <div class="dm-grid dm-g4">
+        <article class="dm-card persona">
+          <img src="assets/equipo-david.jpg" alt="David Miazzo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'inicial',textContent:'DM'}))">
+          <div><h3>David Miazzo</h3><p>Economista</p></div>
+          <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" rel="noopener" class="dm-link"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        </article>
+        <article class="dm-card persona">
+          <img src="assets/equipo-ciro.jpg" alt="Ciro Ricci" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'inicial',textContent:'CR'}))">
+          <div><h3>Ciro Ricci</h3><p>Economista</p></div>
+          <a href="https://www.linkedin.com/in/ciro-ricci-/" target="_blank" rel="noopener" class="dm-link"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        </article>
+        <article class="dm-card persona">
+          <img src="assets/equipo-martina.jpg" alt="Martina Ydiart" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'inicial',textContent:'MY'}))">
+          <div><h3>Martina Ydiart</h3><p>Economista</p></div>
+          <a href="https://www.linkedin.com/in/martina-ydiart/" target="_blank" rel="noopener" class="dm-link"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        </article>
+        <article class="dm-card persona">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQHfcD3TEVY1xw/profile-displayphoto-crop_800_800/B4DZ.LXq7qGkAM-/0/1784749666382?e=1786579200&v=beta&t=9aEH8WPIR7dMF3ajlGB9kE2O2l1NfGXFhrpqzpJb4WY" alt="Laura Zamanillo" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'inicial',textContent:'LZ'}))">
+          <div><h3>Laura Zamanillo</h3><p>Economista</p></div>
+          <a href="https://www.linkedin.com/in/laura-zamanillo-551a32173/" target="_blank" rel="noopener" class="dm-link"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                <!-- Servicio 2 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Asesoramiento Integral</span>
-                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">2. Comité Comercial y Financiero</h3>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Planes especializados para acompañar la gestión financiera y comercial de tu empresa.</p>
-                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
-                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Planes Disponibles:</h4>
-                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
-                                <li>Productores agropecuarios</li>
-                                <li>Dueños de campo que alquilan</li>
-                                <li>Empresas agro (acopios, etc.)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border-t border-gray-100 pt-3">
-                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Áreas de Trabajo:</h4>
-                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Tesorería</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Eficiencia</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Comercial</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Insumos</span>
-                            </div>
-                        </div>
-                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
-                    </div>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">Capacitación y Charlas</span>
-                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">3. Conferencias</h3>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Disertaciones dinámicas y análisis macroeconómico y sectorial para eventos corporativos y técnicos.</p>
-                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
-                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Modalidades:</h4>
-                            <p class="text-sm text-gray-700">Presencial y Virtual</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border-t border-gray-100 pt-3">
-                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Temáticas Principales:</h4>
-                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Economía general</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Granos</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Ganadería</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Agrofinanzas</span>
-                            </div>
-                        </div>
-                        <a href="#contacto" onclick="switchTab('charla')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Presupuesto</a>
-                    </div>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                    <div>
-                        <span class="text-databeige font-bold uppercase tracking-wider text-sm">A Medida</span>
-                        <h3 class="text-xl font-bold text-datagreen mt-2 mb-2">4. Informes Personalizados</h3>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Diseñamos reportes mensuales exclusivos para tus socios, clientes o canales con tu propia identidad.</p>
-                        <div class="bg-datagreen/5 p-4 rounded-xl mb-4">
-                            <h4 class="font-bold text-datagreen text-xs uppercase mb-2">Objetivo:</h4>
-                            <p class="text-sm text-gray-700">Enriquecer la experiencia de tus clientes con análisis útil y profesional.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border-t border-gray-100 pt-3">
-                            <h4 class="font-bold text-xs text-datagray uppercase mb-2">Contenidos Clave:</h4>
-                            <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Coyuntura</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Granos</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Carnes</span>
-                                <span class="bg-gray-100 px-2.5 py-1 rounded-md">Estadísticas</span>
-                            </div>
-                        </div>
-                        <a href="#contacto" onclick="switchTab('otros')" class="block text-center bg-datagreen text-white font-semibold py-2.5 rounded-xl hover:bg-opacity-90 transition-all text-sm mt-4">Consultar</a>
-                    </div>
-                </div>
-            </div>
+  <section id="contacto" class="dm-band dm-band-blanca">
+    <div class="dm-wrap contacto">
+      <div>
+        <h2>Hablemos</h2>
+        <p class="dm-lede">Elegí una opción para recibir los informes, pedir presupuesto para una conferencia o consultar por asesoramiento.</p>
+        <div class="contacto-datos">
+          <div><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/5493584377218" target="_blank" rel="noopener">Escribinos por WhatsApp</a></div>
+          <div><i class="fa-solid fa-envelope"></i> <a href="mailto:datamiazzo@gmail.com">datamiazzo@gmail.com</a></div>
+          <div><i class="fa-solid fa-location-dot"></i> Tucumán 1585, PB · 1050 CABA</div>
         </div>
-    </section>
-
-    <!-- BIO / SOBRE MÍ -->
-    <section id="bio" class="py-12 bg-datagreen text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                    <span class="text-databeige font-bold uppercase tracking-wider text-base">Trayectoria</span>
-                    <h2 class="text-4xl sm:text-5xl font-bold text-white mt-3 mb-8">Perfil de David Miazzo</h2>
-                    <p class="text-gray-200 text-lg sm:text-xl mb-6 leading-relaxed font-medium">
-                        DATA Miazzo es la consultora del economista David Miazzo, enfocada en brindar soluciones de análisis económico de las cadenas agropecuarias y agroindustriales.
-                    </p>
-                    <p class="text-gray-300 text-base sm:text-lg mb-10 leading-relaxed">
-                        David Miazzo se ha desempeñado como Economista Jefe de FADA y se especializa en economía agropecuaria. Ha realizado consultorías para el Banco Mundial, el Banco Interamericano de Desarrollo (BID), la Corporación Andina de Fomento, el USDA, la FAO y diversos organismos nacionales e instituciones del sector.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-8 text-base text-databeige font-semibold">
-                        <div><i class="fa-solid fa-location-dot mr-2"></i> CABA</div>
-                        <div><i class="fa-solid fa-envelope mr-2"></i> davidmiazzo@gmail.com</div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-white/10 p-4 rounded-3xl border border-white/20 backdrop-blur-sm">
-                        <img src="assets/foto-bio.jpg" alt="David Miazzo" class="rounded-2xl max-h-[400px] object-cover shadow-2xl">
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div>
+        <div class="dm-seg" role="tablist" aria-label="Tipo de consulta" style="margin-bottom:16px">
+          <button type="button" role="tab" id="btn-informes" aria-selected="true" onclick="switchTab('informes')">Recibir informes</button>
+          <button type="button" role="tab" id="btn-charla" aria-selected="false" onclick="switchTab('charla')">Conferencia</button>
+          <button type="button" role="tab" id="btn-otros" aria-selected="false" onclick="switchTab('otros')">Asesoramiento</button>
         </div>
-    </section>
-
-    <!-- MULTIMEDIA (YOUTUBE & SPOTIFY) -->
-    <section id="multimedia" class="py-12 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
-            
-            <!-- YouTube Container -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-datagray flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-youtube text-4xl text-red-600"></i> YouTube
-                    </h3>
-                </div>
-                
-                <!-- Contenedor dinámico de videos de YouTube -->
-                <div id="youtube-videos-container" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <!-- Esqueletos de carga -->
-                    <div class="animate-pulse bg-gray-100 rounded-xl h-32 border border-gray-200"></div>
-                    <div class="animate-pulse bg-gray-100 rounded-xl h-40 border border-gray-200"></div>
-                    <div class="animate-pulse bg-gray-100 rounded-xl h-40 border border-gray-200"></div>
-                </div>
-
-                <div class="mt-8 text-center border-t border-gray-100 pt-6">
-                    <a href="https://www.youtube.com/@DavidMiazzo" target="_blank" class="inline-flex items-center gap-2 font-bold text-base text-red-600 hover:text-red-700 transition-colors">
-                        Ver todos los videos <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Spotify Embed -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-datagray flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-spotify text-4xl text-emerald-600"></i> Spotify
-                    </h3>
-                </div>
-                <div>
-                    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/033LxUTkIUuQUk9G71a02p?utm_source=generator&si=b34b67880dc840d1" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-            </div>
+        <div class="dm-card">
+          <div id="form-alert" class="dm-alerta" hidden></div>
+          <form id="form-informes" class="dm-form form-content" onsubmit="submitForm(event, 'form-informes', 'Listo: te sumamos a los informes.')">
+            <input type="hidden" name="Tipo de Formulario" value="Suscripción Informes">
+            <h3>Recibí los tres informes</h3>
+            <label>Nombre<input type="text" name="Nombre" required autocomplete="name"></label>
+            <div class="dos"><label>Mail<input type="email" name="Email" required autocomplete="email"></label>
+            <label>Teléfono<input type="text" name="Teléfono" required autocomplete="tel" inputmode="tel"></label></div>
+            <button type="submit" class="dm-btn dm-btn-verde dm-btn-block">Suscribirme</button>
+          </form>
+          <form id="form-charla" class="dm-form form-content" hidden onsubmit="submitForm(event, 'form-charla', 'Consulta enviada. Te contactamos a la brevedad.')">
+            <input type="hidden" name="Tipo de Formulario" value="Presupuesto Conferencias">
+            <h3>Presupuesto para una conferencia</h3>
+            <div class="dos"><label>Nombre<input type="text" name="Nombre" required autocomplete="name"></label>
+            <label>Teléfono<input type="text" name="Teléfono" required autocomplete="tel" inputmode="tel"></label></div>
+            <label>Mail<input type="email" name="Email" required autocomplete="email"></label>
+            <label>Evento<input type="text" name="Nombre del Evento"></label>
+            <button type="submit" class="dm-btn dm-btn-verde dm-btn-block">Solicitar presupuesto</button>
+          </form>
+          <form id="form-otros" class="dm-form form-content" hidden onsubmit="submitForm(event, 'form-otros', 'Mensaje enviado. Te respondemos a la brevedad.')">
+            <input type="hidden" name="Tipo de Formulario" value="Otros Servicios">
+            <h3>Consultar por asesoramiento</h3>
+            <label>Nombre<input type="text" name="Nombre" required autocomplete="name"></label>
+            <div class="dos"><label>Mail<input type="email" name="Email" required autocomplete="email"></label>
+            <label>Teléfono<input type="text" name="Teléfono" required autocomplete="tel" inputmode="tel"></label></div>
+            <label>¿Qué servicio te interesa?<textarea name="Información Adicional/Servicio" rows="3"></textarea></label>
+            <button type="submit" class="dm-btn dm-btn-verde dm-btn-block">Enviar consulta</button>
+          </form>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- NUESTRO EQUIPO -->
-    <section id="equipo" class="py-12 bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-8">
-                <h2 class="text-4xl font-bold text-datagreen mb-4">Nuestro Equipo</h2>
-                <p class="text-gray-600 text-lg sm:text-xl">Profesionales especializados en economía, agro y finanzas.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Miembro 1 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
-                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
-                        <img src="assets/equipo-david.jpg" alt="David Miazzo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-                    </div>
-                    <h3 class="font-bold text-lg text-datagreen">David Miazzo</h3>
-                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
-                    <a href="https://www.linkedin.com/in/davidmiazzo/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-                <!-- Miembro 2 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
-                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
-                        <img src="assets/equipo-ciro.jpg" alt="Ciro Ricci" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-                    </div>
-                    <h3 class="font-bold text-lg text-datagreen">Ciro Ricci</h3>
-                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
-                    <a href="https://www.linkedin.com/in/ciro-ricci-/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-                <!-- Miembro 3 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-sm group">
-                    <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden border-2 border-datagreen">
-                        <img src="assets/equipo-martina.jpg" alt="Martina Ydiart" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-                    </div>
-                    <h3 class="font-bold text-lg text-datagreen">Martina Ydiart</h3>
-                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
-                    <a href="https://www.linkedin.com/in/martina-ydiart/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-                <!-- Miembro 4 -->
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 text-center shadow-sm group">
-                    <div class="w-24 h-24 mx-auto mb-4 sm:mb-5 rounded-full overflow-hidden border-2 border-datagreen">
-                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHfcD3TEVY1xw/profile-displayphoto-crop_800_800/B4DZ.LXq7qGkAM-/0/1784749666382?e=1786579200&v=beta&t=9aEH8WPIR7dMF3ajlGB9kE2O2l1NfGXFhrpqzpJb4WY" alt="Laura Zamanillo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-                    </div>
-                    <h3 class="font-bold text-lg text-datagreen">Laura Zamanillo</h3>
-                    <p class="text-sm font-semibold text-gray-700 mb-4">Economista</p>
-                    <a href="https://www.linkedin.com/in/laura-zamanillo-551a32173/" target="_blank" class="inline-flex items-center gap-2 text-sm bg-datagreen text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="dm-pie">
+    <div class="dm-pie-in">
+      <div style="display:flex;align-items:center;gap:16px"><svg class="logo-pie" style="height:20px;color:#FCFDFD" role="img" aria-label="DATA Miazzo" xmlns="http://www.w3.org/2000/svg" viewBox="444.09 430.33 469.81 71.48"><path fill-rule="evenodd" fill="currentColor" d="M 818.207031 430.445312 L 820.246094 430.445312 C 820.441406 430.445312 820.605469 430.496094 820.726562 430.589844 C 820.890625 430.71875 820.972656 430.902344 820.972656 431.136719 L 820.972656 446.332031 C 820.972656 446.566406 820.890625 446.746094 820.726562 446.875 C 820.605469 446.972656 820.441406 447.019531 820.246094 447.019531 L 819.152344 447.019531 C 818.949219 447.019531 818.78125 446.976562 818.65625 446.882812 L 818.628906 446.863281 C 818.46875 446.738281 818.386719 446.558594 818.386719 446.332031 L 818.386719 433.695312 L 812.148438 443.191406 C 812.042969 443.320312 811.917969 443.417969 811.777344 443.484375 C 811.636719 443.550781 811.488281 443.582031 811.332031 443.582031 L 810.082031 443.582031 C 809.910156 443.582031 809.753906 443.550781 809.617188 443.480469 C 809.472656 443.40625 809.351562 443.292969 809.265625 443.144531 L 802.953125 433.660156 L 802.953125 446.332031 C 802.953125 446.566406 802.867188 446.75 802.703125 446.875 L 802.679688 446.894531 C 802.558594 446.976562 802.40625 447.019531 802.222656 447.019531 L 801.128906 447.019531 C 800.933594 447.019531 800.773438 446.972656 800.648438 446.875 C 800.484375 446.75 800.402344 446.566406 800.402344 446.332031 L 800.402344 431.136719 C 800.402344 430.898438 800.484375 430.71875 800.648438 430.589844 C 800.769531 430.496094 800.933594 430.445312 801.128906 430.445312 L 801.421875 430.4375 C 802.113281 430.414062 803.503906 430.367188 803.789062 430.753906 L 810.6875 441.21875 L 817.578125 430.761719 C 817.644531 430.648438 817.742188 430.5625 817.863281 430.507812 C 817.960938 430.46875 818.078125 430.445312 818.207031 430.445312 Z M 844.867188 430.652344 L 852.300781 446.59375 C 852.335938 446.667969 852.3125 446.757812 852.246094 446.796875 C 852.226562 446.808594 852.207031 446.816406 852.183594 446.8125 L 849.617188 446.816406 C 849.5625 446.816406 849.515625 446.777344 849.492188 446.722656 L 844.191406 434.925781 L 838.132812 446.738281 C 838.109375 446.789062 838.0625 446.816406 838.015625 446.816406 L 835.433594 446.816406 C 835.359375 446.816406 835.300781 446.746094 835.300781 446.664062 C 835.300781 446.632812 835.308594 446.601562 835.324219 446.578125 L 843.613281 430.636719 C 843.640625 430.589844 843.683594 430.5625 843.730469 430.5625 L 844.746094 430.5625 C 844.800781 430.5625 844.847656 430.597656 844.867188 430.652344 Z M 827.910156 446.277344 L 827.910156 431.101562 C 827.910156 430.835938 828.003906 430.632812 828.1875 430.492188 L 828.21875 430.46875 C 828.359375 430.375 828.53125 430.328125 828.746094 430.328125 L 830.164062 430.328125 C 830.410156 430.328125 830.605469 430.382812 830.75 430.480469 C 830.953125 430.621094 831.050781 430.828125 831.050781 431.101562 L 831.050781 446.277344 C 831.050781 446.539062 830.960938 446.742188 830.773438 446.882812 L 830.742188 446.90625 C 830.605469 447 830.429688 447.046875 830.214844 447.046875 L 828.746094 447.046875 C 828.515625 447.046875 828.328125 446.992188 828.183594 446.882812 L 828.160156 446.863281 C 827.992188 446.722656 827.910156 446.527344 827.910156 446.277344 Z M 854.726562 446.308594 L 854.726562 445.871094 C 854.726562 445.679688 854.773438 445.511719 854.855469 445.355469 C 854.921875 445.222656 855.019531 445.101562 855.136719 444.984375 L 867.386719 432.527344 L 855.953125 432.527344 C 855.71875 432.527344 855.527344 432.480469 855.382812 432.386719 C 855.171875 432.257812 855.066406 432.054688 855.066406 431.789062 L 855.066406 431.070312 C 855.066406 430.800781 855.171875 430.601562 855.378906 430.46875 L 855.40625 430.453125 C 855.546875 430.371094 855.730469 430.328125 855.953125 430.328125 L 870.621094 430.328125 C 870.871094 430.328125 871.070312 430.375 871.21875 430.460938 L 871.242188 430.476562 C 871.453125 430.609375 871.554688 430.808594 871.554688 431.070312 L 871.554688 431.753906 C 871.554688 431.910156 871.519531 432.0625 871.453125 432.210938 C 871.394531 432.339844 871.304688 432.464844 871.195312 432.578125 L 859.136719 444.851562 L 870.960938 444.851562 C 871.210938 444.851562 871.414062 444.894531 871.5625 444.980469 C 871.785156 445.113281 871.898438 445.316406 871.898438 445.589844 L 871.898438 446.308594 C 871.898438 446.578125 871.785156 446.785156 871.5625 446.914062 C 871.414062 447 871.210938 447.046875 870.960938 447.046875 L 855.660156 447.046875 C 855.414062 447.046875 855.210938 447.003906 855.0625 446.914062 C 854.839844 446.785156 854.726562 446.582031 854.726562 446.308594 Z M 874.523438 446.308594 L 874.523438 445.871094 C 874.523438 445.679688 874.566406 445.511719 874.652344 445.355469 C 874.71875 445.222656 874.816406 445.101562 874.933594 444.984375 L 887.183594 432.527344 L 875.75 432.527344 C 875.515625 432.527344 875.324219 432.480469 875.179688 432.386719 C 874.96875 432.257812 874.863281 432.054688 874.863281 431.789062 L 874.863281 431.070312 C 874.863281 430.800781 874.96875 430.601562 875.175781 430.46875 L 875.203125 430.453125 C 875.34375 430.371094 875.527344 430.328125 875.75 430.328125 L 890.417969 430.328125 C 890.667969 430.328125 890.867188 430.375 891.015625 430.464844 C 891.238281 430.59375 891.351562 430.796875 891.351562 431.070312 L 891.351562 431.753906 C 891.351562 431.910156 891.316406 432.0625 891.25 432.210938 C 891.191406 432.339844 891.101562 432.464844 890.992188 432.578125 L 878.933594 444.851562 L 890.757812 444.851562 C 891.007812 444.851562 891.207031 444.894531 891.355469 444.980469 C 891.582031 445.113281 891.695312 445.316406 891.695312 445.589844 L 891.695312 446.308594 C 891.695312 446.578125 891.582031 446.785156 891.359375 446.914062 C 891.210938 447 891.007812 447.046875 890.757812 447.046875 L 875.457031 447.046875 C 875.207031 447.046875 875.007812 447.003906 874.859375 446.914062 C 874.636719 446.785156 874.523438 446.582031 874.523438 446.308594 Z M 906.65625 447.046875 L 902.453125 447.046875 C 901.375 447.046875 900.402344 446.945312 899.542969 446.738281 C 898.667969 446.535156 897.910156 446.222656 897.269531 445.808594 C 896.609375 445.382812 896.109375 444.867188 895.773438 444.269531 C 895.429688 443.664062 895.257812 442.976562 895.257812 442.214844 L 895.257812 435.160156 C 895.257812 434.398438 895.429688 433.710938 895.773438 433.105469 C 896.109375 432.507812 896.609375 431.996094 897.269531 431.570312 C 897.910156 431.15625 898.667969 430.84375 899.539062 430.636719 C 900.402344 430.433594 901.371094 430.328125 902.453125 430.328125 L 906.65625 430.328125 C 907.734375 430.328125 908.710938 430.433594 909.574219 430.636719 C 910.445312 430.839844 911.210938 431.152344 911.859375 431.570312 C 912.53125 431.996094 913.035156 432.507812 913.375 433.101562 L 913.386719 433.125 C 913.726562 433.730469 913.898438 434.40625 913.898438 435.160156 L 913.898438 442.214844 C 913.898438 442.976562 913.722656 443.664062 913.375 444.273438 C 913.035156 444.867188 912.53125 445.378906 911.859375 445.808594 C 911.210938 446.222656 910.445312 446.535156 909.570312 446.738281 C 908.707031 446.945312 907.734375 447.046875 906.65625 447.046875 Z M 902.648438 444.851562 L 906.460938 444.851562 C 907.1875 444.851562 907.828125 444.785156 908.375 444.660156 C 908.914062 444.535156 909.367188 444.351562 909.730469 444.109375 C 910.078125 443.878906 910.335938 443.605469 910.503906 443.285156 C 910.671875 442.96875 910.753906 442.605469 910.753906 442.1875 L 910.753906 435.191406 C 910.753906 434.363281 910.414062 433.71875 909.730469 433.265625 C 909.367188 433.023438 908.914062 432.839844 908.375 432.714844 C 907.828125 432.589844 907.1875 432.527344 906.460938 432.527344 L 902.648438 432.527344 C 901.921875 432.527344 901.28125 432.589844 900.738281 432.714844 C 900.207031 432.839844 899.761719 433.023438 899.40625 433.265625 C 899.066406 433.492188 898.8125 433.769531 898.648438 434.089844 C 898.484375 434.40625 898.402344 434.773438 898.402344 435.191406 L 898.402344 442.1875 C 898.402344 442.605469 898.484375 442.972656 898.648438 443.285156 C 898.8125 443.605469 899.066406 443.882812 899.40625 444.113281 C 899.761719 444.351562 900.207031 444.535156 900.738281 444.660156 C 901.28125 444.785156 901.917969 444.851562 902.648438 444.851562 "/><path fill-rule="nonzero" fill="currentColor" d="M 457.816406 495.148438 L 490.78125 495.148438 C 496.464844 495.148438 500.820312 494.195312 503.847656 492.300781 C 506.871094 490.402344 508.386719 489.960938 508.386719 486.386719 L 508.386719 446.742188 C 508.386719 439.394531 495.402344 437.980469 490.78125 437.980469 L 455.496094 437.980469 C 455.066406 437.980469 454.703125 438.019531 454.421875 438.105469 L 451.648438 438.105469 L 451.648438 474.972656 C 451.648438 475.570312 451.183594 476.09375 450.65625 476.09375 L 445.078125 476.09375 C 444.550781 476.09375 444.085938 475.589844 444.085938 474.972656 L 444.085938 432.011719 C 444.085938 431.425781 444.492188 430.941406 445 430.894531 C 445.300781 430.738281 445.710938 430.65625 446.230469 430.65625 L 491.710938 430.65625 C 499.738281 430.65625 506.070312 432.074219 510.703125 434.902344 C 515.335938 437.730469 517.652344 441.601562 517.652344 446.515625 L 517.652344 486.613281 C 517.652344 491.523438 515.332031 494.742188 510.703125 497.570312 C 506.070312 500.394531 499.734375 501.8125 491.710938 501.8125 L 452.378906 501.8125 C 451.148438 501.8125 450.527344 501.367188 450.527344 500.472656 L 450.527344 496.175781 C 450.527344 495.652344 450.90625 495.226562 451.367188 495.226562 L 457.417969 495.226562 C 458.789062 495.226562 455.046875 495.148438 457.816406 495.148438 Z M 544.148438 501.484375 L 538.40625 501.484375 C 537.046875 501.484375 536.613281 501.039062 537.105469 500.144531 L 573.980469 431.996094 C 574.351562 431.105469 575.21875 430.332031 576.574219 430.332031 L 585.285156 430.332031 C 586.519531 430.332031 587.386719 431.105469 587.878906 431.996094 L 624.753906 500.144531 C 625.125 501.039062 624.691406 501.484375 623.457031 501.484375 L 617.527344 501.484375 C 616.292969 501.484375 615.488281 501.039062 615.117188 500.144531 L 606.601562 486.578125 L 581.207031 437.457031 L 580.46875 437.457031 L 545.617188 501.132812 C 545.210938 501.367188 544.714844 501.484375 544.148438 501.484375 Z M 672.003906 501.8125 L 666.632812 501.8125 C 665.277344 501.8125 664.59375 501.367188 664.59375 500.472656 L 664.59375 438.65625 C 664.59375 437.988281 663.972656 437.652344 662.738281 437.652344 L 635.871094 437.652344 C 634.390625 437.652344 633.648438 437.242188 633.648438 436.421875 L 633.648438 431.886719 C 633.648438 431.066406 634.390625 430.65625 635.871094 430.65625 L 702.578125 430.65625 C 704.0625 430.65625 704.800781 431.070312 704.800781 431.886719 L 704.800781 436.421875 C 704.800781 437.242188 704.058594 437.652344 702.578125 437.652344 L 675.710938 437.652344 C 674.476562 437.652344 673.859375 437.992188 673.859375 438.65625 L 673.859375 500.472656 C 673.859375 501.363281 673.234375 501.8125 672.003906 501.8125 Z M 720.738281 501.8125 L 714.992188 501.8125 C 713.636719 501.8125 713.203125 501.367188 713.695312 500.472656 L 750.570312 431.671875 C 750.941406 430.777344 751.804688 430.332031 753.164062 430.332031 L 761.875 430.332031 C 763.109375 430.332031 763.972656 430.777344 764.46875 431.671875 L 801.34375 500.144531 C 801.714844 501.039062 801.277344 501.484375 800.046875 501.484375 L 794.117188 501.484375 C 792.882812 501.484375 792.078125 501.039062 791.707031 500.144531 L 786.703125 492.195312 L 757.796875 437.457031 L 757.054688 437.457031 L 722.675781 501.101562 C 722.195312 501.578125 721.542969 501.8125 720.738281 501.8125 "/></svg><span class="frase">Datos para decidir.</span></div>
+      <div>datamiazzo.com.ar · <a href="mailto:datamiazzo@gmail.com">datamiazzo@gmail.com</a> · © 2026 DATA Miazzo</div>
+    </div>
+  </footer>
 
-    <!-- FORMULARIOS DE CONTACTO / PIE -->
-    <section id="contacto" class="py-10 bg-datagray text-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold mb-3">Contacto y Solicitudes</h2>
-                <p class="text-gray-400 text-base">Seleccioná una opción para recibir informes o solicitar presupuestos.</p>
-            </div>
-
-            <!-- Pestañas de Formularios -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8" role="tablist">
-                <button onclick="switchTab('informes')" id="btn-informes" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-datagreen text-white transition-all shadow">Recibir Informes</button>
-                <button onclick="switchTab('charla')" id="btn-charla" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 transition-all">Presupuesto Charla</button>
-                <button onclick="switchTab('otros')" id="btn-otros" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 transition-all">Otros Servicios</button>
-            </div>
-
-            <!-- Contenedor de Formularios -->
-            <div class="bg-white text-datagray p-6 sm:p-8 rounded-2xl shadow-xl">
-                
-                <!-- Alerta de éxito -->
-                <div id="form-alert" class="hidden mb-4 p-3 rounded-xl bg-emerald-100 text-emerald-800 font-semibold text-center text-sm"></div>
-
-                <!-- Form 1: Recibir Informes (Predeterminado) -->
-                <form id="form-informes" class="space-y-4 form-content" onsubmit="submitForm(event, 'form-informes', '¡Suscripción exitosa! Te sumaremos a los informes.')">
-                    <input type="hidden" name="Tipo de Formulario" value="Suscripción Informes">
-                    <h3 class="text-lg font-bold text-datagreen mb-4">Suscribite para recibir los 3 informes</h3>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Nombre</label>
-                        <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
-                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
-                        <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Suscribirme</button>
-                </form>
-
-                <!-- Form 2: Presupuesto Charla -->
-                <form id="form-charla" class="space-y-4 form-content hidden" onsubmit="submitForm(event, 'form-charla', '¡Consulta enviada con éxito! Nos pondremos en contacto.')">
-                    <input type="hidden" name="Tipo de Formulario" value="Presupuesto Conferencias">
-                    <h3 class="text-lg font-bold text-datagreen mb-4">Presupuesto para conferencia</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-semibold mb-1.5">Nombre</label>
-                            <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
-                            <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
-                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Evento</label>
-                        <input type="text" name="Nombre del Evento" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Solicitar</button>
-                </form>
-
-                <!-- Form 3: Otros Servicios -->
-                <form id="form-otros" class="space-y-4 form-content hidden" onsubmit="submitForm(event, 'form-otros', '¡Mensaje enviado con éxito! Te responderemos a la brevedad.')">
-                    <input type="hidden" name="Tipo de Formulario" value="Otros Servicios">
-                    <h3 class="text-lg font-bold text-datagreen mb-4">Consultar por Asesoramiento</h3>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Nombre</label>
-                        <input type="text" name="Nombre" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Mail</label>
-                        <input type="email" name="Email" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Teléfono</label>
-                        <input type="text" name="Teléfono" required class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1.5">Información sobre el servicio</label>
-                        <textarea name="Información Adicional/Servicio" rows="3" class="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-datagreen text-base"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-datagreen text-white font-bold py-3 rounded-xl hover:bg-opacity-90 transition-all mt-4 text-base">Enviar Consulta</button>
-                </form>
-
-            </div>
-
-            <!-- Footer Info -->
-            <div class="mt-12 text-center border-t border-gray-800 pt-6 text-sm text-gray-400">
-                <img src="assets/logo-white.png" alt="Logo" class="h-6 mx-auto mb-3 opacity-80">
-                <p>Tucumán 1585 - PB, 1050 CABA Argentina</p>
-                <p class="mt-1">© 2026 DATA Miazzo. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- JavaScript para pestañas y envío de formularios -->
-    <script>
-        async function loadYouTubeVideos() {
-            const container = document.getElementById('youtube-videos-container');
-            if (!container) return;
-
-            // Videos de respaldo
-            const fallbackVideos = [
-                { id: 'Wgw6zp2kJRc', title: 'David Miazzo en Mercado Visión | Canal Rural' },
-                { id: 'wb65RpkkL44', title: 'Análisis Económico y Perspectivas Agro' },
-                { id: '0ovxq2qPOJg', title: 'Perspectivas Económicas y del Agro' }
-            ];
-
-            const rssUrl = encodeURIComponent('https://www.youtube.com/feeds/videos.xml?user=davidmiazzo');
-            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
-
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-
-                if (data && data.status === 'ok' && data.items && data.items.length > 0) {
-                    const videos = data.items.slice(0, 3).map(item => {
-                        let videoId = '';
-                        if (item.guid && item.guid.includes('yt:video:')) {
-                            videoId = item.guid.replace('yt:video:', '');
-                        } else if (item.link) {
-                            const match = item.link.match(/(?:v=|\/embed\/|\/watch\?v=|\/v\/|https:\/\/youtu\.be\/)([^#&?]*)/);
-                            videoId = (match && match[1]) ? match[1] : '';
-                        }
-                        return {
-                            id: videoId,
-                            title: item.title || 'Video de DATA Miazzo',
-                            date: item.pubDate ? new Date(item.pubDate).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : ''
-                        };
-                    }).filter(v => v.id);
-
-                    if (videos.length > 0) {
-                        renderVideos(videos);
-                        return;
-                    }
-                }
-                renderVideos(fallbackVideos);
-            } catch (error) {
-                renderVideos(fallbackVideos);
-            }
+  <script>
+    async function loadYouTubeVideos() {
+      const container = document.getElementById('youtube-videos-container');
+      if (!container || container.dataset.ok) return;
+      container.dataset.ok = '1';
+      const fallbackVideos = [
+        { id: 'Wgw6zp2kJRc', title: 'David Miazzo en Mercado Visión | Canal Rural' },
+        { id: 'wb65RpkkL44', title: 'Análisis Económico y Perspectivas Agro' },
+        { id: '0ovxq2qPOJg', title: 'Perspectivas Económicas y del Agro' }
+      ];
+      const rssUrl = encodeURIComponent('https://www.youtube.com/feeds/videos.xml?user=davidmiazzo');
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data && data.status === 'ok' && data.items && data.items.length > 0) {
+          const videos = data.items.slice(0, 3).map(item => {
+            let videoId = '';
+            if (item.guid && item.guid.includes('yt:video:')) videoId = item.guid.replace('yt:video:', '');
+            else if (item.link) { const m = item.link.match(/(?:v=|\/embed\/|\/watch\?v=|\/v\/|https:\/\/youtu\.be\/)([^#&?]*)/); videoId = (m && m[1]) ? m[1] : ''; }
+            return { id: videoId, title: item.title || 'Video de DATA Miazzo',
+              date: item.pubDate ? new Date(item.pubDate).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : '' };
+          }).filter(v => v.id);
+          if (videos.length > 0) { renderVideos(videos); return; }
         }
+        renderVideos(fallbackVideos);
+      } catch (error) { renderVideos(fallbackVideos); }
+    }
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    function renderVideos(videos) {
+      const container = document.getElementById('youtube-videos-container');
+      if (!container) return;
+      container.innerHTML = videos.map(v => `
+        <a href="https://youtu.be/${esc(v.id)}" target="_blank" rel="noopener" class="yt">
+          <div class="th"><img src="https://img.youtube.com/vi/${esc(v.id)}/mqdefault.jpg" alt="" loading="lazy"><i class="fa-solid fa-play"></i></div>
+          <h4 title="${esc(v.title)}">${esc(v.title)}</h4>
+          ${v.date ? `<span>${esc(v.date)}</span>` : ''}
+        </a>`).join('');
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadYouTubeVideos); else loadYouTubeVideos();
 
-        function renderVideos(videos) {
-            const container = document.getElementById('youtube-videos-container');
-            if (!container) return;
-
-            container.innerHTML = videos.map(v => `
-                <a href="https://youtu.be/${v.id}" target="_blank" class="flex flex-col gap-3 bg-gray-50 border border-gray-200 rounded-xl p-3 hover:bg-gray-100 transition-colors group">
-                    <div class="relative w-full aspect-video flex-shrink-0 bg-black rounded-lg overflow-hidden">
-                        <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/0 transition-colors">
-                            <i class="fa-solid fa-play text-white text-2xl drop-shadow-md"></i>
-                        </div>
-                    </div>
-                    <div class="flex-grow min-w-0">
-                        <h4 class="font-bold text-sm text-datagray line-clamp-2 leading-tight group-hover:text-datagreen transition-colors" title="${v.title}">
-                            ${v.title}
-                        </h4>
-                        ${v.date ? `<span class="text-xs text-gray-500 block mt-1.5"><i class="fa-regular fa-calendar-days mr-1"></i>${v.date}</span>` : ''}
-                    </div>
-                </a>
-            `).join('');
-        }
-
-        document.addEventListener('DOMContentLoaded', loadYouTubeVideos);
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            loadYouTubeVideos();
-        }
-
-        // --- CONFIGURACIÓN DEL FORMULARIO ---
-        // ¡REEMPLAZA EL TEXTO DE ABAJO CON LA URL QUE TE DIO APPS SCRIPT!
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxYgohLCa52AJWwearNVHOuYAbYVEbQO2B45U7evEjzTiux0tnYXa4vxlNBcn2lPqKJKQ/exec';
-
-        function switchTab(tabName) {
-            document.querySelectorAll('.form-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.remove('bg-datagreen', 'text-white', 'shadow');
-                el.classList.add('gray-800', 'text-gray-300');
-            });
-
-            document.getElementById('form-' + tabName).classList.remove('hidden');
-            const activeBtn = document.getElementById('btn-' + tabName);
-            activeBtn.classList.remove('bg-gray-800', 'text-gray-300');
-            activeBtn.classList.add('bg-datagreen', 'text-white', 'shadow');
-            
-            document.getElementById('form-alert').classList.add('hidden');
-        }
-
-        function submitForm(event, formId, successMessage) {
-            event.preventDefault();
-            const form = document.getElementById(formId);
-            const button = form.querySelector('button[type="submit"]');
-            const originalText = button.innerText;
-            
-            button.innerText = 'Enviando...';
-            button.disabled = true;
-
-            const data = new URLSearchParams(new FormData(form));
-
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: data, 
-                mode: 'no-cors' 
-            })
-                .then(() => {
-                    showMessage(successMessage);
-                    button.innerText = originalText;
-                    button.disabled = false;
-                    form.reset();
-                })
-                .catch(error => {
-                    console.error('Error!', error);
-                    showMessage('Hubo un error al enviar. Por favor, intentá de nuevo.');
-                    button.innerText = originalText;
-                    button.disabled = false;
-                });
-        }
-
-        function showMessage(msg) {
-            const alertBox = document.getElementById('form-alert');
-            alertBox.innerText = msg;
-            alertBox.classList.remove('hidden');
-            setTimeout(() => { alertBox.classList.add('hidden'); }, 6000);
-        }
-    </script>
+    // Formularios: envían a Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxYgohLCa52AJWwearNVHOuYAbYVEbQO2B45U7evEjzTiux0tnYXa4vxlNBcn2lPqKJKQ/exec';
+    function switchTab(tabName) {
+      document.querySelectorAll('.form-content').forEach(el => { el.hidden = el.id !== 'form-' + tabName; });
+      document.querySelectorAll('.dm-seg [role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.id === 'btn-' + tabName)));
+      document.getElementById('form-alert').hidden = true;
+    }
+    document.querySelectorAll('[data-form]').forEach(a => a.addEventListener('click', () => switchTab(a.dataset.form)));
+    function submitForm(event, formId, successMessage) {
+      event.preventDefault();
+      const form = document.getElementById(formId);
+      const button = form.querySelector('button[type="submit"]');
+      const originalText = button.innerText;
+      button.innerText = 'Enviando...';
+      button.disabled = true;
+      const data = new URLSearchParams(new FormData(form));
+      fetch(scriptURL, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(() => { showMessage(successMessage); form.reset(); })
+        .catch(() => showMessage('Hubo un error al enviar. Probá de nuevo o escribinos por WhatsApp.'))
+        .finally(() => { button.innerText = originalText; button.disabled = false; });
+    }
+    function showMessage(msg) {
+      const box = document.getElementById('form-alert');
+      box.innerText = msg; box.hidden = false;
+      setTimeout(() => { box.hidden = true; }, 6000);
+    }
+    // Sección activa en el menú
+    const links = [...document.querySelectorAll('.dm-nav a')];
+    const obs = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.setAttribute('aria-current', String(l.getAttribute('href') === '#' + e.target.id))); }), { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(l => { const s = document.querySelector(l.getAttribute('href')); if (s) obs.observe(s); });
+  </script>
 </body>
 </html>
