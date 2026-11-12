@@ -268,7 +268,77 @@ html body .dm-dashhead{display:block!important;background:var(--dm-papel)!import
 @media (max-width:480px){.dm-dashhead .dm-lockup .sep,.dm-dashhead .dm-lockup svg{display:none}}
 
 html body .dm-dash-tabs{background:var(--dm-papel)!important;border-bottom:1px solid var(--dm-linea)!important;box-shadow:none!important;gap:0 4px!important}
-html body .dm-dash-tabs > .tab,html body .dm-dash-tabs > .tab-btn,html body .dm-dash-tabs > button,html body .dm-dash-tabs > a{font:600 14px/1 var(--dm-f-display)!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:var(--dm-salvia-texto)!important;background:none!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;padding:16px 14px 14px!important;white-space:nowrap;box-shadow:none!important}
+html body .dm-dash-tabs > .tab,html body .dm-dash-tabs > .tab-btn,html body .dm-dash-tabs > button,html body .dm-dash-tabs > a{font:600 13.5px/1 var(--dm-f-display)!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:var(--dm-salvia-texto)!important;background:none!important;border:0!important;border-bottom:2px solid transparent!important;border-radius:0!important;padding:15px 12px 13px!important;white-space:nowrap;box-shadow:none!important}
 html body .dm-dash-tabs > .tab:hover,html body .dm-dash-tabs > .tab-btn:hover{color:var(--dm-carbon)!important}
 html body .dm-dash-tabs > .tab.active,html body .dm-dash-tabs > .tab-btn.active{color:var(--dm-carbon)!important;border-bottom-color:var(--dm-acento)!important}
 @media (max-width:640px){.dm-sitios-pre{display:none}.dm-sitios-in{gap:0 16px;padding:0 16px}.dm-sitios a{font-size:11.5px!important;letter-spacing:.1em!important}}
+
+/* 19. Interior de los dashboards con la estética de datamiazzo.com.ar
+   Se activa con <body class="dm-dash"> y usa --dm-acento (color de la línea).
+   Tarjetas planas blancas con borde fino y radio 6; botones y filtros rectos;
+   tablas limpias; Plex para el texto y Rajdhani para títulos, cifras y controles.
+   El :not(#z) sube la prioridad por encima de los estilos viejos de cada tablero. */
+body.dm-dash{background:var(--dm-papel-calido)!important;color:var(--dm-carbon)}
+html body.dm-dash :is(.dm-dash-tabs > .tab,.dm-dash-tabs > .tab-btn,.dm-dash-tabs > button,.dm-dash-tabs > a):not(#z){font-family:var(--dm-f-display)!important;font-size:13.5px!important;letter-spacing:.08em!important}
+html body.dm-dash :is(.dm-sitios a,.dm-sitios a *,.dm-dashhead .dm-btn,.dm-dashhead .dm-lockup *):not(#z){font-family:var(--dm-f-display)!important}
+
+/* Tarjetas principales */
+html body.dm-dash :is(.card,.full-card,.box,.fin-card,.cf-card,.pvd-header,.pvd-row,.preset-controls,.add-leg-row,.hist-modal,section.monitor,.chart-card,.lc-chart-card,.panel-card):not([class*="dm-"]):not(#z){
+  background:#fff!important;border:1px solid var(--dm-linea)!important;border-radius:6px!important;box-shadow:none!important}
+/* Recuadros secundarios dentro de las tarjetas */
+html body.dm-dash :is(.cf-metric,.calc-result,.pvd-resultado,.cr-kpi,.preset-card,.fin-total-row,.cf-banner,.kpi,.fin-venc-card,.cf-table-wrap):not([class*="dm-"]):not(#z){
+  background:var(--dm-papel)!important;border:1px solid #ECE4DA!important;border-radius:4px!important;box-shadow:none!important}
+html body.dm-dash .fin-venc-card.conviene:not(#z){border-left:3px solid var(--dm-ok,#2E7D4F)!important}
+html body.dm-dash .fin-venc-card.no-conviene:not(#z){border-left:3px solid var(--dm-ladrillo)!important}
+html body.dm-dash .cf-banner.neg:not(#z){border-left:3px solid var(--dm-ladrillo)!important}
+html body.dm-dash .cf-banner.pos:not(#z){border-left:3px solid #2E7D4F!important}
+
+/* Rótulos y cifras */
+html body.dm-dash :is(.card .label,.kpi .k,.kpi .label,.kpi-label,.cr-kpi-label,.cf-metric-label,.ds-kpi-label,.lc-kpi .kl,.spot-card-title):not(#z){
+  font-family:var(--dm-f-display)!important;font-weight:600!important;font-size:11.5px!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:var(--dm-salvia-texto)!important}
+html body.dm-dash :is(.card .value,.kpi .v,.kpi .value,.kpi-value,.cr-kpi-value,.cf-metric-value,.ds-kpi-val,.lc-kpi .kv):not(.up):not(.down):not(.neutral):not(.pos):not(.neg):not(#z){
+  font-family:var(--dm-f-display)!important;font-weight:600!important;color:var(--dm-carbon)!important;font-variant-numeric:tabular-nums}
+html body.dm-dash :is(.kpi-value.up,.kpi-value.down,.kpi-value.neutral):not(#z){font-family:var(--dm-f-display)!important;font-weight:600!important}
+html body.dm-dash :is(.card,.full-card,.box,.fin-card,.cf-card,section.monitor) :is(h2,h3,h4):not([class*="dm-"]):not(.monitor-head h2):not(#z),html body.dm-dash .card-title:not(#z){font-family:var(--dm-f-display)!important;color:var(--dm-carbon)!important}
+html body.dm-dash > main.wrap:not(#z){font-family:var(--dm-f-texto);font-weight:400;font-size:15.5px}
+html body.dm-dash .mon-precio:not(#z){color:var(--dm-carbon)!important;font-family:var(--dm-f-display)}
+html body.dm-dash :is(.mon-ind,.kpi-label,.card-sub):not(#z){font-family:var(--dm-f-texto)}
+html body.dm-dash .mon-ind:not(#z){font-size:15px;text-transform:none;letter-spacing:0;font-weight:500}
+
+/* Filtros, pastillas y botones de opción: rectos, borde fino; el activo en el color de la línea */
+html body.dm-dash :is(.chip,.venc-btn,button.pill,.subtab,.strat-mode-btn,.cr-segmented-btn,.filter-chip,.monitor-toggle,.range-btn,.seg button,.btn-clear,.btn-apply-preset):not([class*="dm-"]):not(#z){
+  font-family:var(--dm-f-display)!important;font-weight:600!important;font-size:14px!important;letter-spacing:.04em!important;
+  border-radius:4px!important;border:1.5px solid var(--dm-linea)!important;background:#fff!important;color:var(--dm-carbon)!important;box-shadow:none!important}
+html body.dm-dash :is(.chip,.venc-btn,button.pill,.subtab,.strat-mode-btn,.cr-segmented-btn,.filter-chip,.range-btn,.seg button):not([class*="dm-"]):hover:not(#z){border-color:var(--dm-acento)!important}
+html body.dm-dash :is(.chip.active,.venc-btn.active,button.pill.active,.subtab.active,.strat-mode-btn.active,.cr-segmented-btn.active,.filter-chip.active,.range-btn.active,.seg button.active,.seg button[aria-pressed="true"]):not(#z){
+  background:var(--dm-acento)!important;border-color:var(--dm-acento)!important;color:#fff!important}
+html body.dm-dash :is(.seg,.subtabs,.cr-segmented):not(#z){background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;gap:6px!important;padding:0!important}
+/* Botones de acción */
+html body.dm-dash :is(.btn-add,.btn-primary,.btn-apply,button.primary):not([class*="dm-"]):not(#z){font-family:var(--dm-f-display)!important;font-weight:600!important;letter-spacing:.04em!important;border-radius:4px!important;background:var(--dm-acento)!important;border:1.5px solid var(--dm-acento)!important;color:#fff!important;box-shadow:none!important}
+
+/* Señales: chicas y rectas */
+html body.dm-dash :is(span.pill,.tna-badge,.fin-badge-conv,.fin-badge-noconv,.pvd-badge,.cf-card-title-tag,.mon-chip,.ratio-state,.pc-market):not([class*="dm-"]):not(#z){border-radius:3px!important}
+
+/* Tablas */
+html body.dm-dash table:not([class*="dm-"]) th:not(#z){background:transparent!important;font-family:var(--dm-f-display)!important;font-weight:600!important;font-size:12px!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:var(--dm-salvia-texto)!important;border-bottom:1.5px solid var(--dm-linea)!important}
+html body.dm-dash table:not([class*="dm-"]) td:not(#z){background:transparent!important;border-bottom:1px solid #ECE4DA!important;font-variant-numeric:tabular-nums}
+html body.dm-dash table:not([class*="dm-"]) tr.ref-active td:not(#z){background:var(--dm-papel-calido)!important;font-weight:600}
+
+/* Campos */
+html body.dm-dash :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),select):not([class*="dm-"]):not(#z){border-radius:4px!important;border:1px solid var(--dm-linea)!important;font-family:var(--dm-f-texto)!important;box-shadow:none!important}
+html body.dm-dash :is(input,select):not([class*="dm-"]):focus:not(#z){outline:2px solid var(--dm-acento)!important;outline-offset:1px}
+
+/* Bloques oscuros: el color de la línea, sin sombra, radio 6 */
+html body.dm-dash :is(.spot-card,.monitor-head):not(#z){background:var(--dm-acento)!important;border-radius:6px!important;box-shadow:none!important}
+html body.dm-dash section.monitor .monitor-head:not(#z){border-radius:0!important}
+html body.dm-dash .monitor-toggle:not(#z){background:#fff!important;color:var(--dm-acento)!important;border-color:#fff!important}
+html body.dm-dash .tabs-arrow:not(#z){border-radius:4px!important;box-shadow:none!important;border:1px solid var(--dm-linea)!important}
+
+/* 19b · ajustes finos: títulos con span, franja spot verde, tarjetas de cruces */
+html body.dm-dash :is(.card,.full-card,.box,.fin-card,.cf-card) :is(h2,h3,h4) > span:not([class*="fa-"]):not(#z){font-family:var(--dm-f-display)!important}
+html body.dm-dash .spot-card :is(.spot-metric-value,.spot-card-title,.spot-metric-label,.spot-card-fecha):not(#z){color:#fff!important}
+html body.dm-dash .spot-card .spot-metric-label:not(#z){opacity:.75}
+html body.dm-dash .dm-cruce:not(#z){background:var(--dm-papel)!important;border:1px solid #ECE4DA!important;border-radius:4px!important;box-shadow:none!important}
+html body.dm-dash .dm-cruce:hover:not(#z){border-color:var(--dm-acento)!important}
+html body.dm-dash .dm-cruce .dm-cruce-k:not(#z){font-family:var(--dm-f-display)!important;font-size:11.5px!important;letter-spacing:.16em!important;color:var(--dm-salvia)!important;font-weight:600!important}
+html body.dm-dash .dm-cruce .dm-cruce-v:not(#z){font-family:var(--dm-f-display)!important;font-weight:600!important;color:var(--dm-carbon)!important}
