@@ -43,7 +43,11 @@
     .bio-datos{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;font-weight:600;color:var(--dm-arena-profunda)}
     .bio-datos a{color:var(--dm-verde);text-decoration:none}
     @media (max-width:860px){.bio-grid{grid-template-columns:1fr}}
-    .media{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+    .media{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:stretch}
+    .media .dm-card{display:flex;flex-direction:column}
+    .media .media-cuerpo{flex:1;display:flex;flex-direction:column;min-height:232px}
+    .media .media-cuerpo iframe{flex:1;min-height:232px;height:100%}
+    .media .media-pie{margin-top:16px}
     @media (max-width:900px){.media{grid-template-columns:1fr}}
     .media h3{display:flex;align-items:center;gap:10px}
     #youtube-videos-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}
@@ -208,12 +212,13 @@
       <div class="media">
         <div class="dm-card">
           <h3><i class="fa-brands fa-youtube" style="color:#A8443A"></i> YouTube</h3>
-          <div id="youtube-videos-container"><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div></div>
-          <p style="margin-top:16px"><a href="https://www.youtube.com/@DavidMiazzo" target="_blank" rel="noopener" class="dm-link">Ver todos los videos →</a></p>
+          <div class="media-cuerpo"><div id="youtube-videos-container"><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div></div></div>
+          <p class="media-pie"><a href="https://www.youtube.com/@DavidMiazzo" target="_blank" rel="noopener" class="dm-link">Ver todos los videos →</a></p>
         </div>
         <div class="dm-card">
           <h3><i class="fa-brands fa-spotify" style="color:#2E9A5A"></i> Spotify</h3>
-          <iframe data-testid="embed-iframe" style="border-radius:12px;border:0" src="https://open.spotify.com/embed/show/033LxUTkIUuQUk9G71a02p?utm_source=generator&si=b34b67880dc840d1" width="100%" height="232" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Audios de los informes en Spotify"></iframe>
+          <div class="media-cuerpo"><iframe data-testid="embed-iframe" style="border-radius:12px;border:0" src="https://open.spotify.com/embed/show/033LxUTkIUuQUk9G71a02p?utm_source=generator&si=b34b67880dc840d1" width="100%" height="232" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Audios de los informes en Spotify"></iframe></div>
+          <p class="media-pie"><a href="https://open.spotify.com/show/033LxUTkIUuQUk9G71a02p" target="_blank" rel="noopener" class="dm-link">Escuchar todos los audios →</a></p>
         </div>
       </div>
     </div>

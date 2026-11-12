@@ -232,3 +232,14 @@
 .dm-informe .fila{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .dm-informe .sitio{font-size:13px;color:var(--dm-salvia-texto);text-decoration:none}
 .dm-informe .sitio:hover{color:var(--dm-acento);text-decoration:underline}
+
+/* 17. Red de sitios: las otras líneas y DATA Miazzo, al final de cada sitio Estrategias */
+.dm-red{background:var(--dm-papel);border-top:1px solid var(--dm-linea);padding:56px 0 60px}
+.dm-red h2{font-size:clamp(24px,3vw,30px);margin:0 0 6px}
+.dm-red .dm-lede{margin:0 0 22px}
+a.dm-red-card{text-decoration:none;color:inherit;transition:border-color .15s}
+a.dm-red-card:hover{border-color:var(--dm-acento)}
+a.dm-red-card:hover .sitio{color:var(--dm-acento);text-decoration:underline}
+a.dm-red-card:focus-visible{outline:2px solid var(--dm-acento);outline-offset:3px}
+.dm-red-card .logo-data{height:24px;width:auto;color:var(--dm-carbon);margin:6px 0 4px}
+.dm-pie-sitios{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;border-top:1px solid rgba(255,255,255,.12);padding-top:16px}
