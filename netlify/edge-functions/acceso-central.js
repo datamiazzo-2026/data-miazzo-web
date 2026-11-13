@@ -35,7 +35,8 @@ function algunPermiso(p) {
 
 async function paseId(email, nombre, permisos, vence) {
   const x = vence || ahora() + DIAS_ID * 86400;
-  const pase = await firmar({ t: 'id', e: email, n: nombre || '', p: permisos || {}, x });
+  // c = cuándo se controlaron los permisos contra la planilla por última vez.
+  const pase = await firmar({ t: 'id', e: email, n: nombre || '', p: permisos || {}, c: ahora(), x });
   return cookie(ID, pase, Math.max(0, x - ahora()));
 }
 
@@ -53,22 +54,28 @@ export default async (req, context) => {
     if (!SITIOS[sitio]) return redirigir(url.origin + '/acceso/');
     const volver = volverSeguro(url.searchParams.get('volver'), SITIOS[sitio].dash);
     const qs = `sitio=${sitio}&volver=${encodeURIComponent(volver)}`;
+    // blando=1: consulta silenciosa al pasar de un sitio a otro. Si la persona no
+    // entró o no tiene ese producto, vuelve a la landing del sitio sin avisos.
+    const blando = url.searchParams.get('blando') === '1';
+    const landing = `${SITIOS[sitio].url}/`;
     const id = await leerPase(leerCookie(req, ID), 'id');
-    if (!id) return redirigir(`${url.origin}/acceso/?${qs}`);
+    if (!id) return redirigir(blando ? landing : `${url.origin}/acceso/?${qs}`);
 
-    // Permisos frescos de la planilla; si el Apps Script no responde, se usan
-    // los que quedaron guardados en el pase al último control.
-    const r = await script('permisos', { email: id.e });
+    // Permisos de la planilla, controlados como mucho cada 10 minutos. Si el
+    // Apps Script no responde, se usan los guardados en el pase.
     let permisos = id.p || {};
     const cookies = [];
-    if (r.ok) {
-      if (!r.encontrado || !algunPermiso(r.permisos)) {
-        return redirigir(`${url.origin}/acceso/?${qs}&error=sin_acceso`, [cookie(ID, '', 0)]);
+    if (!id.c || ahora() - id.c > 600) {
+      const r = await script('permisos', { email: id.e });
+      if (r.ok) {
+        if (!r.encontrado || !algunPermiso(r.permisos)) {
+          return redirigir(blando ? landing : `${url.origin}/acceso/?${qs}&error=sin_acceso`, [cookie(ID, '', 0)]);
+        }
+        permisos = r.permisos;
+        cookies.push(await paseId(id.e, r.nombre, permisos, id.x));
       }
-      permisos = r.permisos;
-      cookies.push(await paseId(id.e, r.nombre, permisos, id.x));
     }
-    if (!permisos[sitio]) return redirigir(`${url.origin}/acceso/sin-permiso/?sitio=${sitio}`, cookies);
+    if (!permisos[sitio]) return redirigir(blando ? landing : `${url.origin}/acceso/sin-permiso/?sitio=${sitio}`, cookies);
     const ticket = await firmar({ t: 'ticket', s: sitio, e: id.e, x: ahora() + 120 });
     return redirigir(`${SITIOS[sitio].url}/acceso/entrar?t=${encodeURIComponent(ticket)}&volver=${encodeURIComponent(volver)}`, cookies);
   }
